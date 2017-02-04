@@ -5,20 +5,30 @@ using UnityEngine.AI;
 
 public class Cat : MonoBehaviour {
 
+	public Transform[] catdestinations;
 	Vector3 targetPoint;
+
+	bool changePos;
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("ChangePosition", 0f, 1f);
+		//InvokeRepeating ("ChangePosition", 0f, 10f);
+		changePos = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		GetComponent<NavMeshAgent> ().SetDestination (targetPoint);
+		if(!changePos){
+			Invoke("ChangePosition",Random.Range(5f,10f));
+			changePos = true;
+		}
+		
 	}
 
 	void ChangePosition(){
-		targetPoint = new Vector3 (Random.Range (-8f, 8f), 0,
-			Random.Range (-4.5f, 4.5f));
+		targetPoint = catdestinations [Random.Range (0, catdestinations.Length)].position;
+		GetComponent<NavMeshAgent> ().SetDestination (targetPoint);
+
+		changePos = false;
 	}
 }
