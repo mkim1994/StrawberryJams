@@ -5,15 +5,14 @@ using UnityEngine.AI;
 
 public class Cat : MonoBehaviour {
 
-	public Transform[] catdestinations;
+	GameManager gm;
 	Vector3 targetPoint;
 
 	bool changePos;
 
-	// Use this for initialization
 	void Start () {
-		//InvokeRepeating ("ChangePosition", 0f, 10f);
 		changePos = false;
+		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 	}
 	
 	// Update is called once per frame
@@ -26,7 +25,7 @@ public class Cat : MonoBehaviour {
 	}
 
 	void ChangePosition(){
-		targetPoint = catdestinations [Random.Range (0, catdestinations.Length)].position;
+		targetPoint = gm.catdestinations [Random.Range (0, gm.catdestinations.Length)].position;
 		GetComponent<NavMeshAgent> ().SetDestination (targetPoint);
 
 		changePos = false;
