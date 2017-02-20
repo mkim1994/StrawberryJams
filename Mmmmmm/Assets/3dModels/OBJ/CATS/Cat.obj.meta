@@ -1,21 +1,17 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 8b8e1d1cb7392454d96ad99ee43455b0
-timeCreated: 1487629614
-=======
-guid: 7262f6a8d6d07452792c24104acfd11b
-timeCreated: 1487629383
->>>>>>> master
+guid: 88f46fe0060384e4da3d9a4bf592f37a
+timeCreated: 1486183745
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: pCube136
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: pPlane18
-    9500000: //RootNode
+    400002: pCube136
+    2300000: pCube136
+    3300000: pCube136
+    4300000: pCube136
   materials:
     importMaterials: 1
     materialName: 0
@@ -40,11 +36,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-<<<<<<< HEAD
     globalScale: 1
-=======
-    globalScale: 100
->>>>>>> master
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -82,7 +74,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
