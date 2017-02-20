@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 5d15c333351c34e5387b4ee1e2fc18d6
 timeCreated: 1487627780
+=======
+guid: d0463bdc0a0a643d3bb2b4a6785ae744
+timeCreated: 1487627004
+>>>>>>> Stashed changes
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -35,7 +40,11 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
+<<<<<<< Updated upstream
     globalScale: 1
+=======
+    globalScale: 100
+>>>>>>> Stashed changes
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

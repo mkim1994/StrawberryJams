@@ -48,7 +48,11 @@ Material:
     - first:
         name: _MainTex
       second:
+<<<<<<< Updated upstream
         m_Texture: {fileID: 2800000, guid: f07186e552e9f430194e0430aa06b82e, type: 3}
+=======
+        m_Texture: {fileID: 2800000, guid: c33c382bd382e4a0a89c3649f0e0181e, type: 3}
+>>>>>>> Stashed changes
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
