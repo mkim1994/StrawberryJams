@@ -7,6 +7,8 @@ TagManager:
   - Cat
   - CatDestinations
   - GameManager
+  - UI
+  - Background
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - BACKGROUND
   - 
   - 
   - 
@@ -43,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BACKGROUND
+    uniqueID: 2681555519
     locked: 0
