@@ -49,7 +49,11 @@ Material:
         name: _MainTex
       second:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         m_Texture: {fileID: 2800000, guid: dbd8e97469473423aa6fd9f00bfc9eb3, type: 3}
+=======
+        m_Texture: {fileID: 2800000, guid: 6f5b11e59e11d4f909a9dd2ba28f2acc, type: 3}
+>>>>>>> Stashed changes
 =======
         m_Texture: {fileID: 2800000, guid: 6f5b11e59e11d4f909a9dd2ba28f2acc, type: 3}
 >>>>>>> Stashed changes

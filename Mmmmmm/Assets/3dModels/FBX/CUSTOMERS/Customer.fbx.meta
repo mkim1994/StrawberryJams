@@ -1,13 +1,32 @@
 fileFormatVersion: 2
 guid: 9afb91200f0cc43b7be898263258513d
+<<<<<<< Updated upstream
+=======
+timeCreated: 1487621760
+licenseType: Free
+>>>>>>> Stashed changes
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+<<<<<<< Updated upstream
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
     4300000: pPlane18
+=======
+    100002: customer:pCube190
+    100004: pPlane17
+    400000: //RootNode
+    400002: customer:pCube190
+    400004: pPlane17
+    2300000: customer:pCube190
+    2300002: pPlane17
+    3300000: customer:pCube190
+    3300002: pPlane17
+    4300000: customer:pCube190
+    4300002: pPlane17
+>>>>>>> Stashed changes
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -33,7 +52,11 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
+<<<<<<< Updated upstream
     globalScale: 0
+=======
+    globalScale: 100
+>>>>>>> Stashed changes
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
