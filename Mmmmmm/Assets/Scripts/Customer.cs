@@ -2,12 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour { //+hacky EventManager
-
-	public Transform[] catdestinations;
-
-
-
+public class Customer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +13,4 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 	void Update () {
 		
 	}
-
-
 }

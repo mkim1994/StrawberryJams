@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour { //+hacky EventManager
+public class Player : MonoBehaviour {
 
-	public Transform[] catdestinations;
+	public int money;
 
-
-
+	List<Toy> toys;
+	List<Food> food;
+	List<GameObject> cats;
 
 	// Use this for initialization
 	void Start () {
@@ -19,5 +20,11 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 		
 	}
 
+	void giveFood(GameObject cat){
 
+	}
+
+	void giveToy(GameObject cat){
+
+	}
 }

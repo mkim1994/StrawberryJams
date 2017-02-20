@@ -10,6 +10,13 @@ public class Cat : MonoBehaviour {
 
 	bool changePos;
 
+	public string thename;
+	public int happiness;
+	public int horniness;
+
+	public int breedingchance;
+
+
 	void Start () {
 		changePos = false;
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
@@ -30,4 +37,14 @@ public class Cat : MonoBehaviour {
 
 		changePos = false;
 	}
+
+	void eatFood(Food food){
+		
+	}
+
+	void playWithToy(Toy toy){
+
+	}
+
+
 }
