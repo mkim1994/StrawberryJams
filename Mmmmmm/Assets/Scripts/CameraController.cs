@@ -39,12 +39,12 @@ public class CameraController : MonoBehaviour {
 			));
 		}
 
-		if (Input.GetMouseButton (0)) {
+		/*if (Input.GetMouseButton (0)) {*/
 			Camera.main.transform.position += new Vector3 (-Input.GetAxis ("Mouse X") * cameraSpeed, Input.GetAxis ("Mouse Y") * cameraSpeed);
 			//Camera.main.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition)*cameraSpeed;
 		/*	Camera.main.transform.LookAt (Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x,
 				Input.mousePosition.y, Camera.main.transform.position.z)), Vector3.up);*/
-		}
+		//}
 	}
 
 	void ZoomOrthoCamera(Vector3 zoomTowards, float amount)
