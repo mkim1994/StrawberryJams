@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour {
 	float minY = 8.14f;
 	float minZ= 7.55f;
 
+	float cameraSpeed = 0.3f;
 
 	// Use this for initialization
 	void Start () {
@@ -37,17 +38,24 @@ public class CameraController : MonoBehaviour {
 				"easetype","easeOutBack"
 			));
 		}
+
+		if (Input.GetMouseButton (0)) {
+			Camera.main.transform.position += new Vector3 (-Input.GetAxis ("Mouse X") * cameraSpeed, Input.GetAxis ("Mouse Y") * cameraSpeed);
+			//Camera.main.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition)*cameraSpeed;
+		/*	Camera.main.transform.LookAt (Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x,
+				Input.mousePosition.y, Camera.main.transform.position.z)), Vector3.up);*/
+		}
 	}
 
 	void ZoomOrthoCamera(Vector3 zoomTowards, float amount)
 	{
 
-		if (minZoom < Camera.main.orthographicSize && Camera.main.orthographicSize < maxZoom) {
+		/*if (minZoom < Camera.main.orthographicSize && Camera.main.orthographicSize < maxZoom) {*/
 			// Move camera
 			// Calculate how much we will have to move towards the zoomTowards position
-			float multiplier = (1.0f / Camera.main.orthographicSize * amount);
-			Camera.main.transform.position += (zoomTowards - transform.position) * multiplier; 
-		}
+		/*	float multiplier = (1.0f / Camera.main.orthographicSize * amount);
+			Camera.main.transform.position += (zoomTowards - transform.position) * multiplier; */
+		//}
 
 		// Zoom camera
 		Camera.main.orthographicSize -= amount;
