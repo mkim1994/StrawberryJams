@@ -9,6 +9,9 @@ TagManager:
   - GameManager
   - UI
   - Background
+  - Customer
+  - CustomerRange
+  - CatRange
   layers:
   - Default
   - TransparentFX
@@ -48,4 +51,7 @@ TagManager:
     locked: 0
   - name: BACKGROUND
     uniqueID: 2681555519
+    locked: 0
+  - name: UI
+    uniqueID: 1890868389
     locked: 0

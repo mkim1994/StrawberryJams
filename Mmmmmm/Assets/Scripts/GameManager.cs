@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour { //+hacky EventManager
 
-	public Transform[] catdestinations;
-
+	[HideInInspector]
+	public List<Transform> catdestinations;
+	public Transform catdestinationgroup;
 
 
 
@@ -19,5 +20,10 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 		
 	}
 
+	void fillCatDestinations(){
+		foreach (Transform child in catdestinationgroup) {
+			catdestinations.Add (child);
+		}
+	}
 
 }

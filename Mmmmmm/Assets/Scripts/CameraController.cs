@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour {
 	float minY = 8.14f;
 	float minZ= 7.55f;
 
-	float cameraSpeed = 0.3f;
+	float cameraSpeed = 0.1f;
 
 	// Use this for initialization
 	void Start () {

@@ -16,23 +16,27 @@ public class Cat : MonoBehaviour {
 
 	public int breedingchance;
 
+	private InteractionRange interactionrange;
 
 	void Start () {
 		changePos = false;
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
+		interactionrange = transform.GetChild (0).gameObject.GetComponent<InteractionRange> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(!changePos){
-			Invoke("ChangePosition",Random.Range(5f,10f));
+			Invoke("ChangePosition",Random.Range(1f,20f));
 			changePos = true;
 		}
+
+		DetectInteractionRange ();
 		
 	}
 
 	void ChangePosition(){
-		targetPoint = gm.catdestinations [Random.Range (0, gm.catdestinations.Length)].position;
+		targetPoint = gm.catdestinations [Random.Range (0, gm.catdestinations.Count)].position;
 		GetComponent<NavMeshAgent> ().SetDestination (targetPoint);
 
 		changePos = false;
@@ -44,6 +48,16 @@ public class Cat : MonoBehaviour {
 
 	void playWithToy(Toy toy){
 
+	}
+
+	void DetectInteractionRange(){
+		if (interactionrange.catsmet) {
+			print ("meow");
+		}
+
+		if (interactionrange.customermet) {
+			print ("hellohuman");
+		}
 	}
 
 
