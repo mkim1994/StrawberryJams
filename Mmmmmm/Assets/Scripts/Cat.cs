@@ -18,7 +18,13 @@ public class Cat : MonoBehaviour {
 
 	private InteractionRange interactionrange;
 
+	private bool canmove;
+	private bool doingthings;
+	private bool metacat;
+	private bool metacustomer;
+
 	void Start () {
+		canmove = true;
 		changePos = false;
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		interactionrange = transform.GetChild (0).gameObject.GetComponent<InteractionRange> ();
@@ -26,12 +32,19 @@ public class Cat : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(!changePos){
+		if(!changePos && canmove){
 			Invoke("ChangePosition",Random.Range(1f,20f));
 			changePos = true;
 		}
-
 		DetectInteractionRange ();
+
+		if (doingthings) {
+			if (metacat) {
+				StartCoroutine (StartDoingThingsCat());
+			} else if (metacustomer) {
+				StartCoroutine (StartDoingThingsCustomer());
+			}
+		}
 		
 	}
 
@@ -51,14 +64,32 @@ public class Cat : MonoBehaviour {
 	}
 
 	void DetectInteractionRange(){
-		if (interactionrange.catsmet) {
+		if (!doingthings && interactionrange.catsmet) {
 			print ("meow");
+			doingthings = true;
+			metacat = true;
+			canmove = false;
 		}
 
-		if (interactionrange.customermet) {
+		if (!doingthings && interactionrange.customermet) {
 			print ("hellohuman");
+			doingthings = true;
+			canmove = false;
 		}
 	}
 
-
+	IEnumerator StartDoingThingsCat(){
+		yield return new WaitForSeconds (5f);
+		canmove = true;
+		yield return new WaitForSeconds (3f);
+		metacat = false;
+		doingthings = false;
+	}
+	IEnumerator StartDoingThingsCustomer(){
+		yield return new WaitForSeconds (10f);
+		canmove = true;
+		yield return new WaitForSeconds (3f);
+		metacustomer = false;
+		doingthings = false;
+	}
 }

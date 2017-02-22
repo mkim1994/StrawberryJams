@@ -12,6 +12,7 @@ TagManager:
   - Customer
   - CustomerRange
   - CatRange
+  - UIManager
   layers:
   - Default
   - TransparentFX

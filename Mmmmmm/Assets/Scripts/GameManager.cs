@@ -8,11 +8,14 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 	public List<Transform> catdestinations;
 	public Transform catdestinationgroup;
 
+	[HideInInspector]
+	public List<Transform> customerdestinations;
+	public Transform customerdestinationgroup;
 
 
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+		fillDestinations ();
 	}
 	
 	// Update is called once per frame
@@ -22,9 +25,12 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 		}
 	}
 
-	void fillCatDestinations(){
+	void fillDestinations(){
 		foreach (Transform child in catdestinationgroup) {
 			catdestinations.Add (child);
+		}
+		foreach (Transform child in customerdestinationgroup) {
+			customerdestinations.Add (child); //0 index is always entrance/exit
 		}
 	}
 

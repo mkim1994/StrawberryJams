@@ -10,6 +10,8 @@ public class Player : MonoBehaviour {
 	List<Food> food;
 	List<GameObject> cats;
 
+
+
 	// Use this for initialization
 	void Start () {
 		

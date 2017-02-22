@@ -10,10 +10,13 @@ public class UIManager : MonoBehaviour {
 	public GameObject InventoryCanvas;
 	public GameObject ShopCanvas;
 
+	public Text moneyText;
 
 	List<GameObject> CatUIElements;
 	List<GameObject> InventoryUIElements;
 	List<GameObject> ShopUIElements;
+
+	Player player;
 
 	// Use this for initialization
 	void Start () {
@@ -32,12 +35,14 @@ public class UIManager : MonoBehaviour {
 		foreach (Transform child in ShopCanvas.transform) {
 			ShopUIElements.Add (child.gameObject);
 		}
+
+		player = GameObject.FindWithTag ("Player").GetComponent<Player> ();
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		moneyText.text = "$"+player.money;
 	}
 
 	public void clickExitToCafe(){
