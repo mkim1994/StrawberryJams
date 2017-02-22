@@ -12,10 +12,27 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 	public List<Transform> customerdestinations;
 	public Transform customerdestinationgroup;
 
+	[HideInInspector]
+	public List<GameObject> customers;
+	[HideInInspector]
+	public List<GameObject> cats;
+
+	public List<GameObject> customerPrefabs;
 
 	// Use this for initialization
 	void Awake () {
 		fillDestinations ();
+
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Cat")) {
+			cats.Add (go);
+		}
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Customer")) {
+			customers.Add (go);
+		}
+	}
+
+	void Start(){
+		InvokeRepeating ("SpawnCustomer", 10f, Random.Range (10f, 20f));
 	}
 	
 	// Update is called once per frame
@@ -32,6 +49,12 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 		foreach (Transform child in customerdestinationgroup) {
 			customerdestinations.Add (child); //0 index is always entrance/exit
 		}
+	}
+
+	void SpawnCustomer(){
+		GameObject customer = Instantiate (customerPrefabs [Random.Range (0, customerPrefabs.Count)], customerdestinations [0].position, Quaternion.identity);
+		customer.transform.eulerAngles = new Vector3 (0f, -90f, 0f);
+		customers.Add (customer);
 	}
 
 }

@@ -7,7 +7,6 @@ public class Customer : MonoBehaviour {
 
 	GameManager gm;
 	Vector3 targetPoint;
-	private bool doingthings; 
 
 	NavMeshAgent agent;
 	BoxCollider boxcollider;
@@ -17,6 +16,9 @@ public class Customer : MonoBehaviour {
 	bool changePos;
 	bool canmove;
 	bool initialpath;
+
+	bool doingthings;
+	bool metacat;
 
 	// Use this for initialization
 	void Start () {
@@ -62,5 +64,20 @@ public class Customer : MonoBehaviour {
 		agent.SetDestination (targetPoint);
 
 		changePos = false;
+	}
+
+	void DetectInteractionRange(){
+		if (!doingthings && interactionrange.catsmet) {
+			print ("meow");
+			doingthings = true;
+			metacat = true;
+			canmove = false;
+		}
+
+		/*if (!doingthings && interactionrange.customermet) {
+			print ("hellohuman");
+			doingthings = true;
+			canmove = false;
+		}*/
 	}
 }
