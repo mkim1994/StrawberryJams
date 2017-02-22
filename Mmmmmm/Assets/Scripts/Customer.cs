@@ -9,7 +9,8 @@ public class Customer : MonoBehaviour {
 	Vector3 targetPoint;
 
 	NavMeshAgent agent;
-	BoxCollider boxcollider;
+	NavMeshObstacle obstacle;
+	//BoxCollider boxcollider;
 
 	private InteractionRange interactionrange;
 
@@ -19,11 +20,13 @@ public class Customer : MonoBehaviour {
 
 	bool doingthings;
 	bool metacat;
+	bool metacustomer;
 
 	// Use this for initialization
 	void Start () {
-		agent = transform.GetComponent<NavMeshAgent> ();
-		boxcollider = transform.GetComponent<BoxCollider> ();
+		agent = GetComponent<NavMeshAgent> ();
+		obstacle = GetComponent<NavMeshObstacle> ();
+		//boxcollider = transform.GetComponent<BoxCollider> ();
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		interactionrange = transform.GetChild (0).gameObject.GetComponent<InteractionRange> ();
 		targetPoint = gm.customerdestinations [1].position;
@@ -45,6 +48,8 @@ public class Customer : MonoBehaviour {
 			Invoke("ChangePosition",Random.Range(1f,10f));
 			changePos = true;
 		}
+
+		DetectInteractionRange ();
 	}
 
 	bool atDestination(Vector3 pos){
@@ -53,31 +58,36 @@ public class Customer : MonoBehaviour {
 
 	void initiateCustomerRoam(){
 		agent.enabled = true;
-		//boxcollider.enabled = true;
+		obstacle.enabled = false;
 		canmove = true;
 		initialpath = true;
 		agent.SetDestination (gm.customerdestinations [3].position);
 	}
 
 	void ChangePosition(){
-		targetPoint = gm.customerdestinations [Random.Range (4, gm.customerdestinations.Count)].position;
-		agent.SetDestination (targetPoint);
 
+		if (agent.enabled) {
+			targetPoint = gm.customerdestinations [Random.Range (4, gm.customerdestinations.Count)].position;
+			agent.SetDestination (targetPoint);
+		}
 		changePos = false;
 	}
 
 	void DetectInteractionRange(){
 		if (!doingthings && interactionrange.catsmet) {
-			print ("meow");
 			doingthings = true;
 			metacat = true;
 			canmove = false;
+			agent.enabled = false;
+			obstacle.enabled = true;
 		}
 
-		/*if (!doingthings && interactionrange.customermet) {
-			print ("hellohuman");
+		if (!doingthings && interactionrange.customermet) {
 			doingthings = true;
+			metacustomer = true;
 			canmove = false;
-		}*/
+			agent.enabled = false;
+			obstacle.enabled = true;
+		}
 	}
 }

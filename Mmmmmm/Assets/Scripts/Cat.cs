@@ -23,7 +23,10 @@ public class Cat : MonoBehaviour {
 	private bool metacat;
 	private bool metacustomer;
 
+	NavMeshAgent agent;
+
 	void Start () {
+		agent = GetComponent<NavMeshAgent> ();
 		canmove = true;
 		changePos = false;
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
@@ -49,8 +52,10 @@ public class Cat : MonoBehaviour {
 	}
 
 	void ChangePosition(){
-		targetPoint = gm.catdestinations [Random.Range (0, gm.catdestinations.Count)].position;
-		GetComponent<NavMeshAgent> ().SetDestination (targetPoint);
+		if (agent.enabled) {
+			targetPoint = gm.catdestinations [Random.Range (0, gm.catdestinations.Count)].position;
+			agent.SetDestination (targetPoint);
+		}
 
 		changePos = false;
 	}
@@ -69,12 +74,14 @@ public class Cat : MonoBehaviour {
 			doingthings = true;
 			metacat = true;
 			canmove = false;
+			agent.enabled = false;
 		}
 
 		if (!doingthings && interactionrange.customermet) {
 			print ("hellohuman");
 			doingthings = true;
 			canmove = false;
+			agent.enabled = false;
 		}
 	}
 

@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 	}
 
 	void Start(){
-		InvokeRepeating ("SpawnCustomer", 10f, Random.Range (10f, 20f));
+		InvokeRepeating ("SpawnCustomer", 10f, Random.Range (2f, 5f));
 	}
 	
 	// Update is called once per frame
