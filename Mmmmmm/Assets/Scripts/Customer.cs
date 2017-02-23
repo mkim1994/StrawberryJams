@@ -12,6 +12,9 @@ public class Customer : MonoBehaviour {
 	NavMeshObstacle obstacle;
 	//BoxCollider boxcollider;
 
+	Transform target;
+	Vector3 _direction;
+	Quaternion _lookRotation;
 
 	bool changePos;
 	bool canmove;
@@ -20,11 +23,13 @@ public class Customer : MonoBehaviour {
 	public bool doingthings;
 	bool metacat;
 	bool metacustomer;
+	SphereCollider interactionrange;
 
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<NavMeshAgent> ();
 		obstacle = GetComponent<NavMeshObstacle> ();
+		interactionrange = GetComponent<SphereCollider> ();
 		agent.enabled = false;
 		obstacle.enabled = false;
 
@@ -48,6 +53,10 @@ public class Customer : MonoBehaviour {
 		if(!initialpath && !changePos && canmove){
 			Invoke("ChangePosition",Random.Range(1f,10f));
 			changePos = true;
+		}
+
+		if (doingthings && target != null) {
+			faceEachOther ();
 		}
 
 	}
@@ -74,18 +83,43 @@ public class Customer : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		if (!doingthings && other.gameObject.tag=="Cat" && !other.gameObject.GetComponent<Cat>().doingthings) {
+		if (!doingthings && other.gameObject.tag=="Cat") {
 			doingthings = true;
 			metacat = true;
 			canmove = false;
 			agent.enabled = false;
 			obstacle.enabled = true;
-		} else if (!doingthings && other.gameObject.tag=="Customer" && !other.gameObject.GetComponent<Customer>().doingthings) {
+			interactionrange.enabled = false;
+
+			target = other.transform;
+		} else if (!doingthings && other.gameObject.tag=="Customer") {
 			doingthings = true;
 			metacustomer = true;
 			canmove = false;
 			agent.enabled = false;
 			obstacle.enabled = true;
+			interactionrange.enabled = false;
+
+			target = other.transform;
 		}
+
+	}
+
+	void faceEachOther(){
+		//find the vector pointing from our position to the target
+		_direction = new Vector3 (target.position.x - transform.position.x,
+			0f, target.position.z - transform.position.z);
+		//_direction = _direction.normalized;
+
+		//create the rotation we need to be in to look at the target
+		_lookRotation = Quaternion.LookRotation (_direction);
+
+		//rotate this over time according to speed until in the required rotation
+		transform.rotation = Quaternion.Slerp (transform.rotation, _lookRotation,
+			Time.deltaTime * 2f);
+
+		/*_direction = new Vector3 (target.position.x, transform.position.y, target.position.z);
+		transform.LookAt (_direction);*/
+
 	}
 }
