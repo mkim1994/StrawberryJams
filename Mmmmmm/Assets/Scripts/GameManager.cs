@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 
 	public List<GameObject> customerPrefabs;
 
+	public float minCustomerSpawnRate, maxCustomerSpawnRate;
+
 	// Use this for initialization
 	void Awake () {
 		fillDestinations ();
@@ -32,7 +34,7 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 	}
 
 	void Start(){
-		InvokeRepeating ("SpawnCustomer", 10f, Random.Range (2f, 5f));
+		InvokeRepeating ("SpawnCustomer", 10f, Random.Range (minCustomerSpawnRate, maxCustomerSpawnRate));
 	}
 	
 	// Update is called once per frame

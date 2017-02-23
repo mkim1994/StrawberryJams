@@ -16,21 +16,22 @@ public class Cat : MonoBehaviour {
 
 	public int breedingchance;
 
-	private InteractionRange interactionrange;
 
 	private bool canmove;
-	private bool doingthings;
+	public bool doingthings;
 	private bool metacat;
 	private bool metacustomer;
 
 	NavMeshAgent agent;
+	NavMeshObstacle obstacle;
 
 	void Start () {
 		agent = GetComponent<NavMeshAgent> ();
+		obstacle = GetComponent<NavMeshObstacle> ();
+		obstacle.enabled = false;
 		canmove = true;
 		changePos = false;
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
-		interactionrange = transform.GetChild (0).gameObject.GetComponent<InteractionRange> ();
 	}
 	
 	// Update is called once per frame
@@ -39,15 +40,14 @@ public class Cat : MonoBehaviour {
 			Invoke("ChangePosition",Random.Range(1f,20f));
 			changePos = true;
 		}
-		DetectInteractionRange ();
 
-		if (doingthings) {
+	/*	if (doingthings) {
 			if (metacat) {
 				StartCoroutine (StartDoingThingsCat());
 			} else if (metacustomer) {
 				StartCoroutine (StartDoingThingsCustomer());
 			}
-		}
+		}*/
 		
 	}
 
@@ -68,20 +68,20 @@ public class Cat : MonoBehaviour {
 
 	}
 
-	void DetectInteractionRange(){
-		if (!doingthings && interactionrange.catsmet) {
+	void OnTriggerEnter(Collider other){
+		if (!doingthings && other.gameObject.tag == "Cat" && !other.gameObject.GetComponent<Cat>().doingthings) {
 			print ("meow");
 			doingthings = true;
 			metacat = true;
 			canmove = false;
 			agent.enabled = false;
-		}
-
-		if (!doingthings && interactionrange.customermet) {
+			obstacle.enabled = true;
+		} else if (!doingthings && other.gameObject.tag == "Customer" && !other.gameObject.GetComponent<Customer>().doingthings) {
 			print ("hellohuman");
 			doingthings = true;
 			canmove = false;
 			agent.enabled = false;
+			obstacle.enabled = true;
 		}
 	}
 

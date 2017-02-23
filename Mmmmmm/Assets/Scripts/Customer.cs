@@ -12,13 +12,12 @@ public class Customer : MonoBehaviour {
 	NavMeshObstacle obstacle;
 	//BoxCollider boxcollider;
 
-	private InteractionRange interactionrange;
 
 	bool changePos;
 	bool canmove;
 	bool initialpath;
 
-	bool doingthings;
+	public bool doingthings;
 	bool metacat;
 	bool metacustomer;
 
@@ -26,9 +25,11 @@ public class Customer : MonoBehaviour {
 	void Start () {
 		agent = GetComponent<NavMeshAgent> ();
 		obstacle = GetComponent<NavMeshObstacle> ();
+		agent.enabled = false;
+		obstacle.enabled = false;
+
 		//boxcollider = transform.GetComponent<BoxCollider> ();
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
-		interactionrange = transform.GetChild (0).gameObject.GetComponent<InteractionRange> ();
 		targetPoint = gm.customerdestinations [1].position;
 		iTween.MoveTo (this.gameObject, iTween.Hash (
 			"position", targetPoint,
@@ -49,7 +50,6 @@ public class Customer : MonoBehaviour {
 			changePos = true;
 		}
 
-		DetectInteractionRange ();
 	}
 
 	bool atDestination(Vector3 pos){
@@ -73,16 +73,14 @@ public class Customer : MonoBehaviour {
 		changePos = false;
 	}
 
-	void DetectInteractionRange(){
-		if (!doingthings && interactionrange.catsmet) {
+	void OnTriggerEnter(Collider other){
+		if (!doingthings && other.gameObject.tag=="Cat" && !other.gameObject.GetComponent<Cat>().doingthings) {
 			doingthings = true;
 			metacat = true;
 			canmove = false;
 			agent.enabled = false;
 			obstacle.enabled = true;
-		}
-
-		if (!doingthings && interactionrange.customermet) {
+		} else if (!doingthings && other.gameObject.tag=="Customer" && !other.gameObject.GetComponent<Customer>().doingthings) {
 			doingthings = true;
 			metacustomer = true;
 			canmove = false;
