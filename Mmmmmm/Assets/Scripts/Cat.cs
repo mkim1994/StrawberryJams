@@ -30,6 +30,9 @@ public class Cat : MonoBehaviour {
 	Quaternion _lookRotation;
 	Vector3 _direction;
 
+	bool recentlyMet;
+	float changePosTime;
+
 	void Start () {
 		agent = GetComponent<NavMeshAgent> ();
 		obstacle = GetComponent<NavMeshObstacle> ();
@@ -43,22 +46,25 @@ public class Cat : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(!changePos && canmove){
-			Invoke("ChangePosition",Random.Range(1f,20f));
+			if (recentlyMet) {
+				changePosTime = 0f;
+			} else {
+				changePosTime = Random.Range (1f, 10f);
+			}
+			Invoke("ChangePosition", changePosTime);
+			recentlyMet = false;
 			changePos = true;
 		}
 
-		if (doingthings) {
+		if (doingthings && target != null) {
 			faceEachOther ();
-		}
-
-	/*	if (doingthings) {
 			if (metacat) {
 				StartCoroutine (StartDoingThingsCat());
 			} else if (metacustomer) {
 				StartCoroutine (StartDoingThingsCustomer());
 			}
-		}*/
-		
+		}
+
 	}
 
 	void ChangePosition(){
@@ -105,17 +111,31 @@ public class Cat : MonoBehaviour {
 
 	IEnumerator StartDoingThingsCat(){
 		yield return new WaitForSeconds (5f);
+		print ("byecat");
 		canmove = true;
+		obstacle.enabled = false;
+		recentlyMet = true;
+		agent.enabled = true;
+		target = null;
+
 		yield return new WaitForSeconds (3f);
 		metacat = false;
 		doingthings = false;
+		interactionrange.enabled = true;
 	}
 	IEnumerator StartDoingThingsCustomer(){
-		yield return new WaitForSeconds (10f);
+		yield return new WaitForSeconds (5f);
+		print ("byehuman");
 		canmove = true;
+		obstacle.enabled = false;
+		recentlyMet = true;
+		agent.enabled = true;
+		target = null;
+
 		yield return new WaitForSeconds (3f);
 		metacustomer = false;
 		doingthings = false;
+		interactionrange.enabled = true;
 	}
 
 	void faceEachOther(){

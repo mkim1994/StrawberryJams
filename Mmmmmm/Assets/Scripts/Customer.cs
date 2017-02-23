@@ -25,6 +25,9 @@ public class Customer : MonoBehaviour {
 	bool metacustomer;
 	SphereCollider interactionrange;
 
+	float changePosTime;
+	bool recentlyMet;
+
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<NavMeshAgent> ();
@@ -51,12 +54,21 @@ public class Customer : MonoBehaviour {
 		}
 
 		if(!initialpath && !changePos && canmove){
-			Invoke("ChangePosition",Random.Range(1f,10f));
+			if (recentlyMet) {
+				changePosTime = 0f;
+			} else {
+				changePosTime = Random.Range (1f, 10f);
+			}
+			Invoke("ChangePosition", changePosTime);
+			recentlyMet = false;
 			changePos = true;
 		}
 
 		if (doingthings && target != null) {
 			faceEachOther ();
+			if (metacat) {
+				StartCoroutine (StartDoingThingsCat());
+			}
 		}
 
 	}
@@ -92,7 +104,9 @@ public class Customer : MonoBehaviour {
 			interactionrange.enabled = false;
 
 			target = other.transform;
-		} else if (!doingthings && other.gameObject.tag=="Customer") {
+		} 
+
+		/*else if (!doingthings && other.gameObject.tag=="Customer") {
 			doingthings = true;
 			metacustomer = true;
 			canmove = false;
@@ -102,7 +116,7 @@ public class Customer : MonoBehaviour {
 
 			target = other.transform;
 		}
-
+*/
 	}
 
 	void faceEachOther(){
@@ -120,6 +134,22 @@ public class Customer : MonoBehaviour {
 
 		/*_direction = new Vector3 (target.position.x, transform.position.y, target.position.z);
 		transform.LookAt (_direction);*/
+
+	}
+
+	IEnumerator StartDoingThingsCat(){
+		yield return new WaitForSeconds (5f);
+		//ChangePosition ();
+		canmove = true;
+		obstacle.enabled = false;
+		recentlyMet = true;
+		agent.enabled = true;
+		target = null;
+
+		yield return new WaitForSeconds (3f);
+		metacat = false;
+		doingthings = false;
+		interactionrange.enabled = true;
 
 	}
 }
