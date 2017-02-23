@@ -45,6 +45,7 @@ ModelImporter:
     100074: nurbsCircle7
     100076: nurbsCircle8
     100078: nurbsCircle9
+    100080: pPlane18
     400000: Cat:pCube136
     400002: //RootNode
     400004: ikHandle1
@@ -85,7 +86,9 @@ ModelImporter:
     400074: nurbsCircle7
     400076: nurbsCircle8
     400078: nurbsCircle9
+    400080: pPlane18
     4300000: Cat:pCube136
+    4300002: pPlane18
     7400000: walk
     7400002: idle1
     7400004: idle2
@@ -93,6 +96,7 @@ ModelImporter:
     7400008: idle4-eating
     9500000: //RootNode
     13700000: Cat:pCube136
+    13700002: pPlane18
   materials:
     importMaterials: 1
     materialName: 0
@@ -442,7 +446,7 @@ ModelImporter:
       name: idle3
       takeName: Take 001
       firstFrame: 75
-      lastFrame: 90
+      lastFrame: 89
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -545,11 +549,11 @@ ModelImporter:
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
       name: idle4-eating
       takeName: Take 001
-      firstFrame: 91
+      firstFrame: 92
       lastFrame: 129
       wrapMode: 0
       orientationOffsetY: 0
@@ -653,7 +657,7 @@ ModelImporter:
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []

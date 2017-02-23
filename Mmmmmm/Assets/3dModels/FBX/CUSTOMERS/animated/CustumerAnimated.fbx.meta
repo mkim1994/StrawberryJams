@@ -118,7 +118,7 @@ ModelImporter:
       name: walk
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 40
+      lastFrame: 39
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -225,8 +225,8 @@ ModelImporter:
     - serializedVersion: 16
       name: idle-looking at cat
       takeName: Take 001
-      firstFrame: 41
-      lastFrame: 80
+      firstFrame: 42
+      lastFrame: 78
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -333,8 +333,8 @@ ModelImporter:
     - serializedVersion: 16
       name: idle-kneeling
       takeName: Take 001
-      firstFrame: 81
-      lastFrame: 120
+      firstFrame: 82
+      lastFrame: 119
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -441,8 +441,8 @@ ModelImporter:
     - serializedVersion: 16
       name: sittingonTable1
       takeName: Take 001
-      firstFrame: 121
-      lastFrame: 140
+      firstFrame: 122
+      lastFrame: 158
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -549,8 +549,8 @@ ModelImporter:
     - serializedVersion: 16
       name: sittingOnTable2
       takeName: Take 001
-      firstFrame: 141
-      lastFrame: 200
+      firstFrame: 161
+      lastFrame: 199
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
