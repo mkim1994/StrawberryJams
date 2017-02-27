@@ -18,8 +18,19 @@ public class UIManager : MonoBehaviour {
 
 	Player player;
 
+	public int numOfShopToys;
+	public int numOfInventoryToys;
+	public int numOfShopFood;
+	public int numOfInventoryFood;
+
+	public int numOfCatPages;
+
 	// Use this for initialization
 	void Start () {
+		CatBookCanvas.SetActive (false);
+		InventoryCanvas.SetActive (false);
+		ShopCanvas.SetActive (false);
+
 		CatUIElements = new List<GameObject> ();
 		InventoryUIElements = new List<GameObject> ();
 		ShopUIElements = new List<GameObject> ();
@@ -147,5 +158,70 @@ public class UIManager : MonoBehaviour {
 	public void clickExitToCatBook(){
 		CatUIElements [0].SetActive (true);
 		CatUIElements [1].SetActive (false);
+	}
+
+	//[1] is toy, [2] is food
+	public void flipThroughPagesShopToy(int page){
+		Transform ToysShop = ShopUIElements [1].transform;
+		//skip (0) because it's the ToyPanel
+
+		for (int i = 1; i < numOfShopToys + 1; i++) {
+			if (i == page) {
+				ToysShop.GetChild (page).gameObject.SetActive (true);
+			} else{
+				ToysShop.GetChild (i).gameObject.SetActive (false);
+			}
+		}
+	}
+
+	public void flipThroughPagesShopFood(int page){
+		Transform FoodShop = ShopUIElements [2].transform;
+		//skip (0) because it's the ToyPanel
+
+		for (int i = 1; i < numOfShopFood + 1; i++) {
+			if (i == page) {
+				FoodShop.GetChild (page).gameObject.SetActive (true);
+			} else{
+				FoodShop.GetChild (i).gameObject.SetActive (false);
+			}
+		}
+	}
+
+	public void flipThroughPagesInventoryToy(int page){
+		Transform ToyInventory = InventoryUIElements [1].transform;
+		//skip (0) because it's the ToyPanel
+
+		for (int i = 1; i < numOfInventoryToys + 1; i++) {
+			if (i == page) {
+				ToyInventory.GetChild (page).gameObject.SetActive (true);
+			} else{
+				ToyInventory.GetChild (i).gameObject.SetActive (false);
+			}
+		}
+	}
+
+	public void flipThroughPagesInventoryFood(int page){
+		Transform FoodInventory = InventoryUIElements [2].transform;
+		//skip (0) because it's the ToyPanel
+
+		for (int i = 1; i < numOfInventoryFood + 1; i++) {
+			if (i == page) {
+				FoodInventory.GetChild (page).gameObject.SetActive (true);
+			} else{
+				FoodInventory.GetChild (i).gameObject.SetActive (false);
+			}
+		}
+	}
+
+	public void flipThroughPagesCat(int page){
+		Transform CatBook = CatUIElements [1].transform;
+
+		for (int i = 1; i < numOfCatPages + 1; i++) {
+			if (i == page) {
+				CatBook.GetChild (page).gameObject.SetActive (true);
+			} else {
+				CatBook.GetChild (i).gameObject.SetActive (false);
+			}
+		}
 	}
 }
