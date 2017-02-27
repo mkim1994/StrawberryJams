@@ -5,6 +5,7 @@ using UnityEngine;
 public class Food {
 
 	public string thename = "";
+	public int fullgrade;
 
 
 }

@@ -8,12 +8,12 @@ public class Player : MonoBehaviour {
 
 	List<Toy> toys;
 	List<Food> food;
-	List<GameObject> cats;
 
-
+	GameManager gm;
 
 	// Use this for initialization
 	void Start () {
+		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 		
 	}
 	

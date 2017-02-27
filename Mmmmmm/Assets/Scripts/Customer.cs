@@ -9,8 +9,6 @@ public class Customer : MonoBehaviour {
 	Vector3 targetPoint;
 
 	NavMeshAgent agent;
-	NavMeshObstacle obstacle;
-	//BoxCollider boxcollider;
 
 	Transform target;
 	Vector3 _direction;
@@ -28,13 +26,16 @@ public class Customer : MonoBehaviour {
 	float changePosTime;
 	bool recentlyMet;
 
+	float durationOfStay;
+	float durationExtension = 20f;
+
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<NavMeshAgent> ();
-		obstacle = GetComponent<NavMeshObstacle> ();
+	//	agent.avoidancePriority = Random.Range (1, 100);
+
 		interactionrange = GetComponent<SphereCollider> ();
 		agent.enabled = false;
-		obstacle.enabled = false;
 
 		//boxcollider = transform.GetComponent<BoxCollider> ();
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
@@ -79,7 +80,8 @@ public class Customer : MonoBehaviour {
 
 	void initiateCustomerRoam(){
 		agent.enabled = true;
-		obstacle.enabled = false;
+
+		//obstacle.enabled = false;
 		canmove = true;
 		initialpath = true;
 		agent.SetDestination (gm.customerdestinations [3].position);
@@ -99,8 +101,9 @@ public class Customer : MonoBehaviour {
 			doingthings = true;
 			metacat = true;
 			canmove = false;
-			agent.enabled = false;
-			obstacle.enabled = true;
+
+			agent.Stop ();
+
 			interactionrange.enabled = false;
 
 			target = other.transform;
@@ -141,12 +144,16 @@ public class Customer : MonoBehaviour {
 		yield return new WaitForSeconds (5f);
 		//ChangePosition ();
 		canmove = true;
-		obstacle.enabled = false;
+
+
+
 		recentlyMet = true;
-		agent.enabled = true;
+
+		agent.Resume ();
+
 		target = null;
 
-		yield return new WaitForSeconds (3f);
+		yield return new WaitForSeconds (10f);
 		metacat = false;
 		doingthings = false;
 		interactionrange.enabled = true;

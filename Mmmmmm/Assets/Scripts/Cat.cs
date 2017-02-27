@@ -23,7 +23,6 @@ public class Cat : MonoBehaviour {
 	private bool metacustomer;
 
 	NavMeshAgent agent;
-	NavMeshObstacle obstacle;
 	SphereCollider interactionrange;
 
 	Transform target;
@@ -35,9 +34,9 @@ public class Cat : MonoBehaviour {
 
 	void Start () {
 		agent = GetComponent<NavMeshAgent> ();
-		obstacle = GetComponent<NavMeshObstacle> ();
+		//agent.avoidancePriority = Random.Range (1, 100);
+
 		interactionrange = GetComponent<SphereCollider> ();
-		obstacle.enabled = false;
 		canmove = true;
 		changePos = false;
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
@@ -45,6 +44,7 @@ public class Cat : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		if(!changePos && canmove){
 			if (recentlyMet) {
 				changePosTime = 0f;
@@ -68,10 +68,8 @@ public class Cat : MonoBehaviour {
 	}
 
 	void ChangePosition(){
-		if (agent.enabled) {
-			targetPoint = gm.catdestinations [Random.Range (0, gm.catdestinations.Count)].position;
-			agent.SetDestination (targetPoint);
-		}
+		targetPoint = gm.catdestinations [Random.Range (0, gm.catdestinations.Count)].position;
+		agent.SetDestination (targetPoint);
 
 		changePos = false;
 	}
@@ -90,17 +88,20 @@ public class Cat : MonoBehaviour {
 			doingthings = true;
 			metacat = true;
 			canmove = false;
-			agent.enabled = false;
-			obstacle.enabled = true;
+
+			agent.Stop ();
+
+			//obstacle.enabled = true;
 			interactionrange.enabled = false;
 
 			target = other.transform;
 		} else if (!doingthings && other.gameObject.tag == "Customer") {
 			print ("hellohuman");
 			doingthings = true;
+			metacustomer = true;
 			canmove = false;
-			agent.enabled = false;
-			obstacle.enabled = true;
+
+			agent.Stop ();
 
 			interactionrange.enabled = false;
 
@@ -110,33 +111,43 @@ public class Cat : MonoBehaviour {
 	}
 
 	IEnumerator StartDoingThingsCat(){
+		
 		yield return new WaitForSeconds (5f);
-		print ("byecat");
 		canmove = true;
-		obstacle.enabled = false;
+	//	obstacle.enabled = false;
 		recentlyMet = true;
-		agent.enabled = true;
+
+		agent.Resume ();
 		target = null;
 
-		yield return new WaitForSeconds (3f);
+		yield return new WaitForSeconds (10f);
 		metacat = false;
 		doingthings = false;
 		interactionrange.enabled = true;
 	}
 	IEnumerator StartDoingThingsCustomer(){
 		yield return new WaitForSeconds (5f);
-		print ("byehuman");
 		canmove = true;
-		obstacle.enabled = false;
+	//	obstacle.enabled = false;
 		recentlyMet = true;
-		agent.enabled = true;
+
+		agent.Resume ();
+
 		target = null;
 
-		yield return new WaitForSeconds (3f);
+		yield return new WaitForSeconds (10f);
 		metacustomer = false;
 		doingthings = false;
 		interactionrange.enabled = true;
 	}
+
+/*	void pauseNav(){
+
+	}
+
+	void resumeNav(){
+
+	}*/
 
 	void faceEachOther(){
 		//find the vector pointing from our position to the target
@@ -150,8 +161,6 @@ public class Cat : MonoBehaviour {
 		//rotate this over time according to speed until in the required rotation
 		transform.rotation = Quaternion.Slerp (transform.rotation, _lookRotation,
 			Time.deltaTime * 2f);
-		/*_direction = new Vector3 (target.position.x, transform.position.y, target.position.z);
-		transform.LookAt (_direction);*/
 
 	}
 }
