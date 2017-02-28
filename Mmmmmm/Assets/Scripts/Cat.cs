@@ -49,7 +49,7 @@ public class Cat : MonoBehaviour {
 			if (recentlyMet) {
 				changePosTime = 0f;
 			} else {
-				changePosTime = Random.Range (1f, 10f);
+				changePosTime = Random.Range (3f, 8f);
 			}
 			Invoke("ChangePosition", changePosTime);
 			recentlyMet = false;

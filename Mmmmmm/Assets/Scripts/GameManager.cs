@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 	List<Food> food;
 
 	float moneyperiod = 0f;
-	float timeinterval = 2f;
+	float timeinterval = 10f;
 
 	// Use this for initialization
 	void Awake () {
@@ -57,11 +57,11 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 	}
 
 	void CountMoney(){
-		if (moneyperiod > timeinterval) {
+		if (moneyperiod > timeinterval/(customers.Count*0.9f)) {
 			money += 1;
 			moneyperiod = 0f;
 		}
-		moneyperiod += Time.deltaTime/customers.Count;
+		moneyperiod += Time.deltaTime;
 	}
 
 	void fillDestinations(){

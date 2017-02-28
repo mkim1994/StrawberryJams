@@ -27,8 +27,8 @@ public class Customer : MonoBehaviour {
 	bool recentlyMet;
 
 	float initializationTime;
-	float timeSinceInitialization;
-	float durationOfStay = 30f;
+	public float timeSinceInitialization;
+	public float durationOfStay;
 	float durationExtension = 5f;
 
 	bool customerExiting;
@@ -59,47 +59,48 @@ public class Customer : MonoBehaviour {
 	void Update () {
 		timeSinceInitialization = Time.timeSinceLevelLoad - initializationTime;
 
-		if (customerExiting && atDestination(gm.customerdestinations[3].position)) {
+		if (customerExiting && atDestination (gm.customerdestinations [2].position)) {
 			agent.enabled = false;
-			targetPoint = gm.customerdestinations [2].position;
+			targetPoint = gm.customerdestinations [3].position;
 			iTween.MoveTo (this.gameObject, iTween.Hash (
 				"position", targetPoint,
 				"time", 3f,
 				"oncomplete", "destroyCustomer",
 				"oncompletetarget", transform.gameObject
 			));
-		}
+		} else if (!customerExiting) {
 
-		if (timeSinceInitialization > durationOfStay && canmove && !customerExiting) {
-			interactionrange.enabled = false;
-			if (agent.enabled) {
-				targetPoint = gm.customerdestinations [3].position;
-				agent.SetDestination (targetPoint);
-				customerExiting = true;
-			}
-
-		} else {
-
-
-			if (initialpath && atDestination (gm.customerdestinations [5].position)) {
-				initialpath = false;
-			}
-
-			if (!initialpath && !changePos && canmove) {
-				if (recentlyMet) {
-					changePosTime = 0f;
-				} else {
-					changePosTime = Random.Range (1f, 10f);
+			if (timeSinceInitialization > durationOfStay && canmove) {
+				interactionrange.enabled = false;
+				if (agent.enabled) {
+					targetPoint = gm.customerdestinations [3].position;
+					agent.SetDestination (targetPoint);
+					customerExiting = true;
 				}
-				Invoke ("ChangePosition", changePosTime);
-				recentlyMet = false;
-				changePos = true;
-			}
 
-			if (doingthings && target != null) {
-				faceEachOther ();
-				if (metacat) {
-					StartCoroutine (StartDoingThingsCat ());
+			} else {
+
+
+				if (initialpath && atDestination (gm.customerdestinations [5].position)) {
+					initialpath = false;
+				}
+
+				if (!initialpath && !changePos && canmove) {
+					if (recentlyMet) {
+						changePosTime = 0f;
+					} else {
+						changePosTime = Random.Range (1f, 10f);
+					}
+					Invoke ("ChangePosition", changePosTime);
+					recentlyMet = false;
+					changePos = true;
+				}
+
+				if (doingthings && target != null) {
+					faceEachOther ();
+					if (metacat) {
+						StartCoroutine (StartDoingThingsCat ());
+					}
 				}
 			}
 		}
@@ -125,7 +126,7 @@ public class Customer : MonoBehaviour {
 
 	void ChangePosition(){
 
-		if (agent.enabled) {
+		if (agent.enabled && !customerExiting) {
 			targetPoint = gm.customerdestinations [Random.Range (6, gm.customerdestinations.Count)].position;
 			agent.SetDestination (targetPoint);
 		}
