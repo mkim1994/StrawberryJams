@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4345725357937420}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4389404312249458}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4445543060826588}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: nurbsCircle7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4792548099879456}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: nurbsCircle4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4060550555717686}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: nurbsCircle8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4146359897606146}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4668571748722248}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: nurbsCircle9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4793054865286898}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: nurbsCircle11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4007272717073770}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4195637381287686}
   - component: {fileID: 95142984659086400}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CustomerAnimated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4870662257038440}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: nurbsCircle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4108693368097320}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: nurbsCircle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4908391726445048}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ikHandle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4578971622431764}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4924816591141108}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4555494542804648}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4291598284133020}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4499495104332444}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4873164131561570}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ikHandle4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4529712432024884}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ikHandle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4752974628043234}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ikHandle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4050680649375482}
   - component: {fileID: 137256927514692018}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pPlane18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4410018688270750}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4045016185892726}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: nurbsCircle10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4361012090980914}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4441436026703990}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4887792768354160}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4955639659899032}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +441,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4781706799630180}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: nurbsCircle5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +456,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4683476092867510}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 114989349899791260}
   - component: {fileID: 135345388469286010}
   - component: {fileID: 54722645231405488}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Customer
   m_TagString: Customer
   m_Icon: {fileID: 0}
@@ -490,7 +490,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4543448848389572}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4094984702893648}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: nurbsCircle6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4476410380967384}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -535,7 +535,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4373759067301984}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: nurbsCircle12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4426466184021296}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +565,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4381606299187740}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -580,7 +580,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4281040313031606}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,7 +595,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4767787005723558}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: nurbsCircle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,7 +610,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4416201029778948}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +625,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4264584022212564}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1229,7 +1229,7 @@ Animator:
   m_GameObject: {fileID: 1243042907483574}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: dfed0abcf2f8e485596cd688d59caa33, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec7e48891382f440d864a167ae313346, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doingthings: 0
   timeSinceInitialization: 0
-  durationOfStay: 25
+  durationOfStay: 60
 --- !u!135 &135345388469286010
 SphereCollider:
   m_ObjectHideFlags: 1

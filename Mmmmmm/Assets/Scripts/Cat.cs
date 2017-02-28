@@ -40,9 +40,14 @@ public class Cat : MonoBehaviour {
 
 	public bool sexytimes;
 
-	public float sexytimesDuration = 5f;
+	public float sexytimesDuration = 5f; //triggers: Walking, Eating, Idle
+
+	Animator anim;
 
 	void Start () {
+
+		anim = transform.GetChild (0).gameObject.GetComponent<Animator> ();
+
 		agent = GetComponent<NavMeshAgent> ();
 		//agent.avoidancePriority = Random.Range (60, 100);
 

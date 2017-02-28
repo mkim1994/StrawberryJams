@@ -33,9 +33,13 @@ public class Customer : MonoBehaviour {
 
 	bool customerExiting;
 
+	Animator anim; //triggers: Walking, Idle, InteractWithCat1, InteractWithCat2
+
 
 	// Use this for initialization
 	void Start () {
+		anim = transform.GetChild (0).gameObject.GetComponent<Animator> ();
+
 		initializationTime = Time.timeSinceLevelLoad;
 
 
@@ -53,11 +57,29 @@ public class Customer : MonoBehaviour {
 			"oncomplete", "initiateCustomerRoam",
 			"oncompletetarget", transform.gameObject
 		));
+
+		//anim.SetTrigger ("Walking");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		timeSinceInitialization = Time.timeSinceLevelLoad - initializationTime;
+
+		if (agent.velocity != Vector3.zero && !metacat && canmove) {
+			print ("walking");
+			anim.SetTrigger ("Walking");
+		} else if (agent.velocity == Vector3.zero && !metacat) {
+			print ("idle");
+			anim.SetTrigger ("Idle");
+		} else {
+			print ("cat");
+			int animchance = Random.Range (-1, 1);
+			if (animchance > 0) {
+				anim.SetTrigger ("InteractWithCat1");
+			} else {
+				anim.SetTrigger ("InteractWithCat2");
+			}
+		}
 
 		if (customerExiting && atDestination (gm.customerdestinations [2].position)) {
 			agent.enabled = false;
@@ -76,6 +98,7 @@ public class Customer : MonoBehaviour {
 					targetPoint = gm.customerdestinations [3].position;
 					agent.SetDestination (targetPoint);
 					customerExiting = true;
+					//anim.SetTrigger ("Walking");
 				}
 
 			} else {
@@ -89,7 +112,7 @@ public class Customer : MonoBehaviour {
 					if (recentlyMet) {
 						changePosTime = 0f;
 					} else {
-						changePosTime = Random.Range (1f, 10f);
+						changePosTime = Random.Range (1f, 4f);
 					}
 					Invoke ("ChangePosition", changePosTime);
 					recentlyMet = false;
@@ -99,6 +122,7 @@ public class Customer : MonoBehaviour {
 				if (doingthings && target != null) {
 					faceEachOther ();
 					if (metacat) {
+						
 						StartCoroutine (StartDoingThingsCat ());
 					}
 				}
@@ -117,6 +141,8 @@ public class Customer : MonoBehaviour {
 
 	void initiateCustomerRoam(){
 		agent.enabled = true;
+
+		//anim.SetTrigger ("Walking");
 
 		//obstacle.enabled = false;
 		canmove = true;
@@ -138,31 +164,15 @@ public class Customer : MonoBehaviour {
 			doingthings = true;
 			metacat = true;
 			canmove = false;
-
-		//	agent.avoidancePriority = 99;
 			agent.Stop ();
-
-		//	agent.enabled = false;
-		//	obstacle.enabled = true;
-
 			interactionrange.enabled = false;
-
 			target = other.transform;
-
 			durationOfStay += durationExtension;
+
+
+
 		} 
 
-		/*else if (!doingthings && other.gameObject.tag=="Customer") {
-			doingthings = true;
-			metacustomer = true;
-			canmove = false;
-			agent.enabled = false;
-			obstacle.enabled = true;
-			interactionrange.enabled = false;
-
-			target = other.transform;
-		}
-*/
 	}
 
 	void faceEachOther(){
@@ -184,22 +194,20 @@ public class Customer : MonoBehaviour {
 	}
 
 	IEnumerator StartDoingThingsCat(){
+
+
+
 		yield return new WaitForSeconds (5f);
-		//ChangePosition ();
+
+
+		metacat = false;
 		canmove = true;
-
-
-
 		recentlyMet = true;
-		//agent.avoidancePriority = Random.Range(0,30);
-	//	obstacle.enabled = false;
-	//	agent.enabled = true;
 		agent.Resume ();
-
 		target = null;
 
+
 		yield return new WaitForSeconds (10f);
-		metacat = false;
 		doingthings = false;
 		interactionrange.enabled = true;
 

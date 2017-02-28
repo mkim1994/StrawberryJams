@@ -89,7 +89,7 @@ ModelImporter:
     7400000: walk
     7400002: idle-looking at cat
     7400004: idle-kneeling
-    7400006: sittingonTable1
+    7400006: idle
     7400008: sittingOnTable2
     9500000: //RootNode
     13700000: pPlane18
@@ -439,7 +439,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: sittingonTable1
+      name: idle
       takeName: Take 001
       firstFrame: 122
       lastFrame: 158
