@@ -33,6 +33,10 @@ public class Customer : MonoBehaviour {
 
 	bool customerExiting;
 
+	bool isWalking;
+	bool isIdle;
+	bool isInteractingWithCat;
+
 	Animator anim; //triggers: Walking, Idle, InteractWithCat1, InteractWithCat2
 
 
@@ -58,26 +62,42 @@ public class Customer : MonoBehaviour {
 			"oncompletetarget", transform.gameObject
 		));
 
-		//anim.SetTrigger ("Walking");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		timeSinceInitialization = Time.timeSinceLevelLoad - initializationTime;
 
-		if (agent.velocity != Vector3.zero && !metacat && canmove) {
-			print ("walking");
+		if (agent.velocity != Vector3.zero && !metacat && canmove && !isWalking) {
 			anim.SetTrigger ("Walking");
-		} else if (agent.velocity == Vector3.zero && !metacat) {
+
+			isWalking = true;
+			isIdle = false;
+			isInteractingWithCat = false;
+
+			print ("walking");
+
+		} else if (agent.velocity == Vector3.zero && !metacat && !isIdle) {
 			print ("idle");
 			anim.SetTrigger ("Idle");
+
+			isWalking = false;
+			isIdle = true;
+			isInteractingWithCat = false;
 		} else {
-			print ("cat");
-			int animchance = Random.Range (-1, 1);
-			if (animchance > 0) {
-				anim.SetTrigger ("InteractWithCat1");
-			} else {
-				anim.SetTrigger ("InteractWithCat2");
+			if (!isInteractingWithCat && metacat) {
+
+				print ("caaaat");
+				int animchance = Random.Range (-1, 1);
+				if (animchance > 0) {
+					anim.SetTrigger ("InteractWithCat1");
+				} else {
+					anim.SetTrigger ("InteractWithCat2");
+				}
+
+				isWalking = false;
+				isIdle = false;
+				isInteractingWithCat = true;
 			}
 		}
 
@@ -98,7 +118,6 @@ public class Customer : MonoBehaviour {
 					targetPoint = gm.customerdestinations [3].position;
 					agent.SetDestination (targetPoint);
 					customerExiting = true;
-					//anim.SetTrigger ("Walking");
 				}
 
 			} else {
@@ -142,7 +161,6 @@ public class Customer : MonoBehaviour {
 	void initiateCustomerRoam(){
 		agent.enabled = true;
 
-		//anim.SetTrigger ("Walking");
 
 		//obstacle.enabled = false;
 		canmove = true;
