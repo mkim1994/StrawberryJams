@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doingthings: 0
   timeSinceInitialization: 0
-  durationOfStay: 60
+  durationOfStay: 25
 --- !u!135 &135345388469286010
 SphereCollider:
   m_ObjectHideFlags: 1

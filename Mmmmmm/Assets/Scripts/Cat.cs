@@ -43,6 +43,9 @@ public class Cat : MonoBehaviour {
 	public float sexytimesDuration = 5f; //triggers: Walking, Eating, Idle
 
 	Animator anim;
+	bool isWalking;
+	bool isEating;
+	bool isIdle;
 
 	void Start () {
 
@@ -59,6 +62,38 @@ public class Cat : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (agent.velocity != Vector3.zero && !metacustomer && canmove && !isWalking) {
+			anim.SetTrigger ("Walking");
+
+			isWalking = true;
+			isIdle = false;
+			isEating = false;
+
+
+		} else if (agent.velocity == Vector3.zero && !metacustomer && !isIdle) {
+			anim.SetTrigger ("Idle");
+			int animchance = Random.Range (0,3);
+			if (animchance == 0) {
+				anim.SetTrigger ("Idle1");
+			} else if (animchance == 1) {
+				anim.SetTrigger ("Idle2");
+			} else {
+				anim.SetTrigger ("Idle3");
+			}
+			isWalking = false;
+			isIdle = true;
+			isEating = false;
+		} else {
+			if (!isEating && metacustomer) {
+
+				anim.SetTrigger ("Eating");
+
+				isWalking = false;
+				isIdle = false;
+				isEating = true;
+			}
+		}
 		
 		if(!changePos && canmove){
 			if (recentlyMet) {
@@ -101,7 +136,6 @@ public class Cat : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if (!doingthings && other.gameObject.tag == "Cat") {
-			print ("meow");
 
 			theOtherCatID = other.GetComponent<Cat> ().uniqueID;
 			doingthings = true;
@@ -119,7 +153,6 @@ public class Cat : MonoBehaviour {
 
 			target = other.transform;
 		} else if (!doingthings && other.gameObject.tag == "Customer") {
-			print ("hellohuman");
 			doingthings = true;
 			metacustomer = true;
 			canmove = false;

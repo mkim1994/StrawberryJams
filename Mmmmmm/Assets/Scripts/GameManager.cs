@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 	}
 
 	void Start(){
-		//InvokeRepeating ("SpawnCustomer", 30f, Random.Range (minCustomerSpawnRate, maxCustomerSpawnRate));
+		InvokeRepeating ("SpawnCustomer", 30f, Random.Range (minCustomerSpawnRate, maxCustomerSpawnRate));
 	}
 	
 	// Update is called once per frame
@@ -65,20 +65,6 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 		//CheckSexyTimes ();
 	}
 
-	void CheckSexyTimes(){
-		//WHAT
-		//use theOtherCatID and uniqueID to get rid of duplicates
-		Transform censoreds = GameObject.FindWithTag("Censoreds").transform;
-		foreach (GameObject cat in cats) {
-			if (cat.GetComponent<Cat> ().sexytimes) {
-				for (int i = 0; i < censoreds.childCount; i++) {
-					if (!censoreds.GetChild(i).gameObject.activeSelf) {
-						return;
-					}
-				}
-			}
-		}
-	}
 
 	void CountMoney(){
 		if (moneyperiod > timeinterval/(customers.Count*0.9f)) {
