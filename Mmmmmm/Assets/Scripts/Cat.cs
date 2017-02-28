@@ -5,16 +5,22 @@ using UnityEngine.AI;
 
 public class Cat : MonoBehaviour {
 
+
 	GameManager gm;
 	Vector3 targetPoint;
 
 	bool changePos;
+
+	//uniqueID starts from 1. 0 is reserved for theOtherCatID when it's "null"
+	public int uniqueID;
+	public int theOtherCatID;
 
 	public string thename;
 	public int happiness;
 	public int horniness;
 
 	public int breedingchance;
+
 
 
 	private bool canmove;
@@ -31,6 +37,10 @@ public class Cat : MonoBehaviour {
 
 	bool recentlyMet;
 	float changePosTime;
+
+	public bool sexytimes;
+
+	public float sexytimesDuration = 5f;
 
 	void Start () {
 		agent = GetComponent<NavMeshAgent> ();
@@ -87,6 +97,8 @@ public class Cat : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if (!doingthings && other.gameObject.tag == "Cat") {
 			print ("meow");
+
+			theOtherCatID = other.GetComponent<Cat> ().uniqueID;
 			doingthings = true;
 			metacat = true;
 			canmove = false;
@@ -120,11 +132,26 @@ public class Cat : MonoBehaviour {
 	}
 
 	IEnumerator StartDoingThingsCat(){
-		
-		yield return new WaitForSeconds (5f);
+
+		sexytimes = true;
+
+	//	GameObject.FindGameObjectWithTag("Censoreds").transform.GetChild(
+
+		transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+		//transform.GetChild (0).gameObject.SetActive (false);
+
+		yield return new WaitForSeconds (sexytimesDuration);
+
+		theOtherCatID = 0;
+
+		sexytimes = false;
+		//transform.GetChild (0).gameObject.SetActive (true);
+		transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+
 		canmove = true;
 	//	obstacle.enabled = false;
 		recentlyMet = true;
+
 
 
 		//obstacle.enabled = false;

@@ -24,6 +24,7 @@ public class CameraController : MonoBehaviour {
 	void Update () {
 		if (Input.GetAxis ("Mouse ScrollWheel") > 0){
 			ZoomOrthoCamera(Camera.main.ScreenToWorldPoint(Input.mousePosition), 1f);
+
 		}
 
 		if (Input.GetAxis ("Mouse ScrollWheel") < 0f) {
@@ -60,8 +61,12 @@ public class CameraController : MonoBehaviour {
 		// Zoom camera
 		Camera.main.orthographicSize -= amount;
 
+		transform.GetChild (0).gameObject.GetComponent<Camera> ().orthographicSize -= amount;
+
 		// Limit zoom
 		Camera.main.orthographicSize = Mathf.Clamp (Camera.main.orthographicSize, minZoom, maxZoom);
+
+		transform.GetChild (0).gameObject.GetComponent<Camera> ().orthographicSize = Mathf.Clamp (transform.GetChild (0).gameObject.GetComponent<Camera> ().orthographicSize, minZoom, maxZoom);
 
 		//Limit Move
 		//Camera.main.transform.position = new Vector3 (

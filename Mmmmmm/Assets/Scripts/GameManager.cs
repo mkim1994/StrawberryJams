@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour { //+hacky EventManager
 
+	public GameObject censored;
+
 	[HideInInspector]
 	public List<Transform> catdestinations;
 	public Transform catdestinationgroup;
@@ -30,12 +32,18 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 	float moneyperiod = 0f;
 	float timeinterval = 10f;
 
+	int catIDcount;
+
 	// Use this for initialization
 	void Awake () {
 		fillDestinations ();
 
+
+		catIDcount = 1;
 		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Cat")) {
+			go.GetComponent<Cat> ().uniqueID = catIDcount;
 			cats.Add (go);
+			catIDcount++;
 		}
 		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Customer")) {
 			customers.Add (go);
@@ -54,6 +62,22 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 
 
 		CountMoney ();
+		//CheckSexyTimes ();
+	}
+
+	void CheckSexyTimes(){
+		//WHAT
+		//use theOtherCatID and uniqueID to get rid of duplicates
+		Transform censoreds = GameObject.FindWithTag("Censoreds").transform;
+		foreach (GameObject cat in cats) {
+			if (cat.GetComponent<Cat> ().sexytimes) {
+				for (int i = 0; i < censoreds.childCount; i++) {
+					if (!censoreds.GetChild(i).gameObject.activeSelf) {
+						return;
+					}
+				}
+			}
+		}
 	}
 
 	void CountMoney(){
