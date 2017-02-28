@@ -26,13 +26,17 @@ public class Customer : MonoBehaviour {
 	float changePosTime;
 	bool recentlyMet;
 
-	float durationOfStay;
+	float initializationTime;
+	float durationOfStay = 60f;
 	float durationExtension = 20f;
+
 
 	// Use this for initialization
 	void Start () {
+		initializationTime = Time.timeSinceLevelLoad;
+
+
 		agent = GetComponent<NavMeshAgent> ();
-	//	agent.avoidancePriority = Random.Range (1, 100);
 
 		interactionrange = GetComponent<SphereCollider> ();
 		agent.enabled = false;
@@ -50,6 +54,13 @@ public class Customer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		float timeSinceInitialization = Time.timeSinceLevelLoad - initializationTime;
+
+		if (timeSinceInitialization > durationOfStay) {
+
+		}
+
+
 		if (initialpath && atDestination(gm.customerdestinations[3].position)) {
 			initialpath = false;
 		}
@@ -102,7 +113,11 @@ public class Customer : MonoBehaviour {
 			metacat = true;
 			canmove = false;
 
+		//	agent.avoidancePriority = 99;
 			agent.Stop ();
+
+		//	agent.enabled = false;
+		//	obstacle.enabled = true;
 
 			interactionrange.enabled = false;
 
@@ -148,7 +163,9 @@ public class Customer : MonoBehaviour {
 
 
 		recentlyMet = true;
-
+		//agent.avoidancePriority = Random.Range(0,30);
+	//	obstacle.enabled = false;
+	//	agent.enabled = true;
 		agent.Resume ();
 
 		target = null;

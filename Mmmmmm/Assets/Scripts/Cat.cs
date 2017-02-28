@@ -34,7 +34,7 @@ public class Cat : MonoBehaviour {
 
 	void Start () {
 		agent = GetComponent<NavMeshAgent> ();
-		//agent.avoidancePriority = Random.Range (1, 100);
+		//agent.avoidancePriority = Random.Range (60, 100);
 
 		interactionrange = GetComponent<SphereCollider> ();
 		canmove = true;
@@ -68,8 +68,10 @@ public class Cat : MonoBehaviour {
 	}
 
 	void ChangePosition(){
-		targetPoint = gm.catdestinations [Random.Range (0, gm.catdestinations.Count)].position;
-		agent.SetDestination (targetPoint);
+		if (agent.enabled) {
+			targetPoint = gm.catdestinations [Random.Range (0, gm.catdestinations.Count)].position;
+			agent.SetDestination (targetPoint);
+		}
 
 		changePos = false;
 	}
@@ -89,7 +91,11 @@ public class Cat : MonoBehaviour {
 			metacat = true;
 			canmove = false;
 
+		//	agent.avoidancePriority = 99;
 			agent.Stop ();
+
+			//agent.enabled = false;
+			//obstacle.enabled = true;
 
 			//obstacle.enabled = true;
 			interactionrange.enabled = false;
@@ -101,7 +107,10 @@ public class Cat : MonoBehaviour {
 			metacustomer = true;
 			canmove = false;
 
+		//	agent.avoidancePriority = 99;
 			agent.Stop ();
+		//	agent.enabled = false;
+		//	obstacle.enabled = true;
 
 			interactionrange.enabled = false;
 
@@ -117,7 +126,14 @@ public class Cat : MonoBehaviour {
 	//	obstacle.enabled = false;
 		recentlyMet = true;
 
+
+		//obstacle.enabled = false;
+	//	agent.enabled = true;
+		//agent.avoidancePriority = Random.Range(0,30);
 		agent.Resume ();
+
+
+
 		target = null;
 
 		yield return new WaitForSeconds (10f);
@@ -131,8 +147,10 @@ public class Cat : MonoBehaviour {
 	//	obstacle.enabled = false;
 		recentlyMet = true;
 
+		//obstacle.enabled = false;
+		//agent.enabled = true;
+	//	agent.avoidancePriority = Random.Range(0,30);
 		agent.Resume ();
-
 		target = null;
 
 		yield return new WaitForSeconds (10f);
