@@ -27,8 +27,11 @@ public class Customer : MonoBehaviour {
 	bool recentlyMet;
 
 	float initializationTime;
-	float durationOfStay = 60f;
-	float durationExtension = 20f;
+	float timeSinceInitialization;
+	float durationOfStay = 30f;
+	float durationExtension = 5f;
+
+	bool customerExiting;
 
 
 	// Use this for initialization
@@ -54,35 +57,57 @@ public class Customer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float timeSinceInitialization = Time.timeSinceLevelLoad - initializationTime;
+		timeSinceInitialization = Time.timeSinceLevelLoad - initializationTime;
 
-		if (timeSinceInitialization > durationOfStay) {
-
+		if (customerExiting && atDestination(gm.customerdestinations[3].position)) {
+			agent.enabled = false;
+			targetPoint = gm.customerdestinations [2].position;
+			iTween.MoveTo (this.gameObject, iTween.Hash (
+				"position", targetPoint,
+				"time", 3f,
+				"oncomplete", "destroyCustomer",
+				"oncompletetarget", transform.gameObject
+			));
 		}
 
-
-		if (initialpath && atDestination(gm.customerdestinations[3].position)) {
-			initialpath = false;
-		}
-
-		if(!initialpath && !changePos && canmove){
-			if (recentlyMet) {
-				changePosTime = 0f;
-			} else {
-				changePosTime = Random.Range (1f, 10f);
+		if (timeSinceInitialization > durationOfStay && canmove && !customerExiting) {
+			interactionrange.enabled = false;
+			if (agent.enabled) {
+				targetPoint = gm.customerdestinations [3].position;
+				agent.SetDestination (targetPoint);
+				customerExiting = true;
 			}
-			Invoke("ChangePosition", changePosTime);
-			recentlyMet = false;
-			changePos = true;
-		}
 
-		if (doingthings && target != null) {
-			faceEachOther ();
-			if (metacat) {
-				StartCoroutine (StartDoingThingsCat());
+		} else {
+
+
+			if (initialpath && atDestination (gm.customerdestinations [5].position)) {
+				initialpath = false;
+			}
+
+			if (!initialpath && !changePos && canmove) {
+				if (recentlyMet) {
+					changePosTime = 0f;
+				} else {
+					changePosTime = Random.Range (1f, 10f);
+				}
+				Invoke ("ChangePosition", changePosTime);
+				recentlyMet = false;
+				changePos = true;
+			}
+
+			if (doingthings && target != null) {
+				faceEachOther ();
+				if (metacat) {
+					StartCoroutine (StartDoingThingsCat ());
+				}
 			}
 		}
 
+	}
+
+	void destroyCustomer(){
+		Destroy (gameObject);
 	}
 
 	bool atDestination(Vector3 pos){
@@ -95,13 +120,13 @@ public class Customer : MonoBehaviour {
 		//obstacle.enabled = false;
 		canmove = true;
 		initialpath = true;
-		agent.SetDestination (gm.customerdestinations [3].position);
+		agent.SetDestination (gm.customerdestinations [5].position);
 	}
 
 	void ChangePosition(){
 
 		if (agent.enabled) {
-			targetPoint = gm.customerdestinations [Random.Range (4, gm.customerdestinations.Count)].position;
+			targetPoint = gm.customerdestinations [Random.Range (6, gm.customerdestinations.Count)].position;
 			agent.SetDestination (targetPoint);
 		}
 		changePos = false;
@@ -122,6 +147,8 @@ public class Customer : MonoBehaviour {
 			interactionrange.enabled = false;
 
 			target = other.transform;
+
+			durationOfStay += durationExtension;
 		} 
 
 		/*else if (!doingthings && other.gameObject.tag=="Customer") {

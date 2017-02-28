@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour {
 	List<GameObject> InventoryUIElements;
 	List<GameObject> ShopUIElements;
 
-	Player player;
+	GameManager gm;
 
 	public int numOfShopToys;
 	public int numOfInventoryToys;
@@ -47,13 +47,13 @@ public class UIManager : MonoBehaviour {
 			ShopUIElements.Add (child.gameObject);
 		}
 
-		player = GameObject.FindWithTag ("Player").GetComponent<Player> ();
-		
+		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
+	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		moneyText.text = "$"+player.money;
+		moneyText.text = "$"+gm.money;
 	}
 
 	public void clickExitToCafe(){

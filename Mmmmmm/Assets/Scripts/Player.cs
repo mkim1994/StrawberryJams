@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-	public int money;
 
-	List<Toy> toys;
-	List<Food> food;
 
 	GameManager gm;
 

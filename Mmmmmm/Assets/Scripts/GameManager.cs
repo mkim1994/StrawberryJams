@@ -21,6 +21,15 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 
 	public float minCustomerSpawnRate, maxCustomerSpawnRate;
 
+
+	public int money;
+
+	List<Toy> toys;
+	List<Food> food;
+
+	float moneyperiod = 0f;
+	float timeinterval = 2f;
+
 	// Use this for initialization
 	void Awake () {
 		fillDestinations ();
@@ -34,7 +43,7 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 	}
 
 	void Start(){
-		InvokeRepeating ("SpawnCustomer", 10f, Random.Range (minCustomerSpawnRate, maxCustomerSpawnRate));
+		InvokeRepeating ("SpawnCustomer", 30f, Random.Range (minCustomerSpawnRate, maxCustomerSpawnRate));
 	}
 	
 	// Update is called once per frame
@@ -42,6 +51,17 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			Application.Quit ();
 		}
+
+
+		CountMoney ();
+	}
+
+	void CountMoney(){
+		if (moneyperiod > timeinterval) {
+			money += 1;
+			moneyperiod = 0f;
+		}
+		moneyperiod += Time.deltaTime/customers.Count;
 	}
 
 	void fillDestinations(){
