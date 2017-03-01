@@ -67,6 +67,10 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 			Application.Quit ();
 		}
 
+		if (Input.GetKeyDown (KeyCode.R)) {
+			Application.LoadLevel ("main");
+		}
+
 
 		CountMoney ();
 		//CheckSexyTimes ();

@@ -21,6 +21,10 @@ public class Cat : MonoBehaviour {
 
 	public int breedingchance;
 
+	//0 for nothing
+	public int ateFood;
+	public int usingToy;
+
 
 
 	private bool canmove;
@@ -141,13 +145,8 @@ public class Cat : MonoBehaviour {
 			metacat = true;
 			canmove = false;
 
-		//	agent.avoidancePriority = 99;
 			agent.Stop ();
 
-			//agent.enabled = false;
-			//obstacle.enabled = true;
-
-			//obstacle.enabled = true;
 			interactionrange.enabled = false;
 
 			target = other.transform;
@@ -156,10 +155,7 @@ public class Cat : MonoBehaviour {
 			metacustomer = true;
 			canmove = false;
 
-		//	agent.avoidancePriority = 99;
 			agent.Stop ();
-		//	agent.enabled = false;
-		//	obstacle.enabled = true;
 
 			interactionrange.enabled = false;
 
@@ -172,28 +168,18 @@ public class Cat : MonoBehaviour {
 
 		sexytimes = true;
 
-	//	GameObject.FindGameObjectWithTag("Censoreds").transform.GetChild(
-
 		transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = true;
-		//transform.GetChild (0).gameObject.SetActive (false);
 
 		yield return new WaitForSeconds (sexytimesDuration);
 
 		theOtherCatID = 0;
 
 		sexytimes = false;
-		//transform.GetChild (0).gameObject.SetActive (true);
 		transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
 		canmove = true;
-	//	obstacle.enabled = false;
 		recentlyMet = true;
 
-
-
-		//obstacle.enabled = false;
-	//	agent.enabled = true;
-		//agent.avoidancePriority = Random.Range(0,30);
 		agent.Resume ();
 
 
@@ -208,12 +194,7 @@ public class Cat : MonoBehaviour {
 	IEnumerator StartDoingThingsCustomer(){
 		yield return new WaitForSeconds (5f);
 		canmove = true;
-	//	obstacle.enabled = false;
 		recentlyMet = true;
-
-		//obstacle.enabled = false;
-		//agent.enabled = true;
-	//	agent.avoidancePriority = Random.Range(0,30);
 		agent.Resume ();
 		target = null;
 
@@ -222,14 +203,6 @@ public class Cat : MonoBehaviour {
 		doingthings = false;
 		interactionrange.enabled = true;
 	}
-
-/*	void pauseNav(){
-
-	}
-
-	void resumeNav(){
-
-	}*/
 
 	void faceEachOther(){
 		//find the vector pointing from our position to the target
