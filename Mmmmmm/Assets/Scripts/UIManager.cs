@@ -93,6 +93,7 @@ public class UIManager : MonoBehaviour {
 		moneyText.text = "$"+gm.money;
 
 		UpdateFoodInventory ();
+		UpdateCatCurrentPage ();
 	}
 
 	public void clickExitToCafe(){
@@ -107,7 +108,9 @@ public class UIManager : MonoBehaviour {
 		ShopCanvas.SetActive (false);
 
 		CatUIElements [0].SetActive (true);
-		CatUIElements [1].SetActive (false);
+		for (int i = 1; i < numOfCatPages + 1; i++) {
+			CatUIElements [i].SetActive (false);
+		}
 
 	}
 	public void clickInventory(){
@@ -190,11 +193,16 @@ public class UIManager : MonoBehaviour {
 		}
 	}
 
-	public void clickCatFromBook(){
-		//in a separate method, change out all the elements of the page according to the cat type
-		//(cat type is determined by the button of the cat you click)
+	public void clickCatFromBook(int page){
 		CatUIElements [0].SetActive (false);
+
+
+		for (int i = 1; i < numOfCatPages + 1; i++) {
+			ShopUIElements [2].transform.GetChild(i).gameObject.SetActive (false);
+		}
 		CatUIElements [1].SetActive (true);
+
+
 	}
 
 	public void clickExitToCatBook(){
@@ -256,13 +264,15 @@ public class UIManager : MonoBehaviour {
 	}
 
 	public void flipThroughPagesCat(int page){
-		Transform CatBook = CatUIElements [1].transform;
+		//Transform CatBook = CatUIElements [1].transform;
+
+		CatUIElements [0].gameObject.SetActive (false);
 
 		for (int i = 1; i < numOfCatPages + 1; i++) {
 			if (i == page) {
-				CatBook.GetChild (page).gameObject.SetActive (true);
+				CatUIElements[i].gameObject.SetActive (true);
 			} else {
-				CatBook.GetChild (i).gameObject.SetActive (false);
+				CatUIElements[i].gameObject.SetActive (false);
 			}
 		}
 	}
@@ -341,5 +351,9 @@ public class UIManager : MonoBehaviour {
 		for (int j = 1; j < ShopFoodPages.Count; j++) {
 			ShopFoodPages [j].transform.GetChild (4).GetChild (0).gameObject.GetComponent<Text> ().text = "IN STOCK: " + gm.foodsInInventory [j - 1];
 		}
+	}
+
+	void UpdateCatCurrentPage(){
+
 	}
 }

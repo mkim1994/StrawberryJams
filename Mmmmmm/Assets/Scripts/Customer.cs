@@ -182,7 +182,8 @@ public class Customer : MonoBehaviour {
 			agent.Stop ();
 			interactionrange.enabled = false;
 			target = other.transform;
-			durationOfStay += durationExtension;
+
+			durationOfStay += durationExtension*(other.GetComponent<Cat>().happiness+1);
 
 
 
