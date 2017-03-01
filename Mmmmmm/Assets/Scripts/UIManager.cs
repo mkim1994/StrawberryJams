@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
-	public GameObject MainMenuCanvas;
+	public GameObject MainMenuCanvas; //4 = too full, 5 = insufficient funds
 	public GameObject CatBookCanvas;
 	public GameObject InventoryCanvas;
 	public GameObject ShopCanvas;
@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour {
 	List<GameObject> CatUIElements;
 	List<GameObject> InventoryUIElements;
 	List<GameObject> ShopUIElements;
+
+	//5, 6, 7: using --> toy, ate --> food, hungry
 
 	GameManager gm;
 
@@ -43,6 +45,9 @@ public class UIManager : MonoBehaviour {
 
 	int currentToy;
 	int currentFood;
+
+	public Sprite[] toySprites;
+	public Sprite[] foodSprites;
 
 	// Use this for initialization
 	void Start () {
@@ -345,7 +350,8 @@ public class UIManager : MonoBehaviour {
 			ShopToyBookPage.transform.GetChild (toy - 1).gameObject.GetComponent<Button> ().interactable = false;
 			clickShopToy ();
 		} else {
-			Debug.Log ("insufficient funds");
+			//Debug.Log ("insufficient funds");
+			StartCoroutine(MessageDisplayInsufficientFunds());
 		}
 
 	}
@@ -377,7 +383,8 @@ public class UIManager : MonoBehaviour {
 			InventoryFoodBookPage.transform.GetChild (food - 1).gameObject.GetComponent<Button> ().interactable = true;
 			gm.foodsInInventory [food - 1] += 1;
 		} else {
-			Debug.Log ("insufficient funds");
+			//Debug.Log ("insufficient funds");
+			StartCoroutine(MessageDisplayInsufficientFunds());
 		}
 
 	}
@@ -385,6 +392,9 @@ public class UIManager : MonoBehaviour {
 	void UpdateFoodInventory(){
 		for (int i = 1; i < InventoryFoodPages.Count; i++) {
 			InventoryFoodPages [i].transform.GetChild (4).GetChild (0).gameObject.GetComponent<Text> ().text = "IN STOCK: " + gm.foodsInInventory [i - 1];
+			if (gm.foodsInInventory [i - 1] == 0) {
+				InventoryFoodBookPage.transform.GetChild (i - 1).gameObject.GetComponent<Button> ().interactable = false;
+			}
 		}
 
 		for (int j = 1; j < ShopFoodPages.Count; j++) {
@@ -393,6 +403,38 @@ public class UIManager : MonoBehaviour {
 	}
 
 	void UpdateCatCurrentPage(){
+		for (int i = 0; i < gm.cats.Count; i++) {
+			Transform catpage = CatUIElements [i + 1].transform;
+			Cat currentCat = gm.cats [i].GetComponent<Cat> ();
+			if (currentCat.usingToy > 0) {
+				catpage.GetChild (5).gameObject.SetActive (true);
+				catpage.GetChild (5).GetChild (0).gameObject.GetComponent<Image> ().sprite = toySprites [currentCat.usingToy - 1];
+			} else {
+				catpage.GetChild (5).gameObject.SetActive (false);
+			}
 
+			if (currentCat.ateFood > 0) {
+				catpage.GetChild (6).gameObject.SetActive (true);
+				catpage.GetChild (7).gameObject.SetActive (false);
+
+				catpage.GetChild (6).GetChild (0).gameObject.GetComponent<Image> ().sprite = foodSprites [currentCat.ateFood - 1];
+
+			} else {
+				catpage.GetChild (6).gameObject.SetActive (false);
+				catpage.GetChild (7).gameObject.SetActive (true);
+			}
+		}
+	}
+
+	public IEnumerator MessageDisplayTooFull(){
+		MainMenuCanvas.transform.GetChild (4).gameObject.SetActive (true);
+		yield return new WaitForSeconds (4f);
+		MainMenuCanvas.transform.GetChild (4).gameObject.SetActive (false);
+	}
+
+	public IEnumerator MessageDisplayInsufficientFunds(){
+		MainMenuCanvas.transform.GetChild (5).gameObject.SetActive (true);
+		yield return new WaitForSeconds (4f);
+		MainMenuCanvas.transform.GetChild (5).gameObject.SetActive (false);
 	}
 }

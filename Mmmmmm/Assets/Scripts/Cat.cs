@@ -51,6 +51,12 @@ public class Cat : MonoBehaviour {
 	bool isEating;
 	bool isIdle;
 
+
+	bool hasEaten;
+	float ateTime;
+	public float timeSinceEaten;
+	public float durationFoodBuff = 30f;
+
 	void Start () {
 
 		anim = transform.GetChild (0).gameObject.GetComponent<Animator> ();
@@ -65,6 +71,8 @@ public class Cat : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		CheckIfHungry ();
 
 		if (agent.velocity != Vector3.zero && !metacustomer && canmove && !isWalking) {
 			anim.SetTrigger ("Walking");
@@ -215,6 +223,29 @@ public class Cat : MonoBehaviour {
 		//rotate this over time according to speed until in the required rotation
 		transform.rotation = Quaternion.Slerp (transform.rotation, _lookRotation,
 			Time.deltaTime * 2f);
+
+	}
+
+	void CheckIfHungry(){
+
+		/* 	float ateTime;
+		public float timeSinceEaten;
+		public float durationFoodBuff = 30f;
+		* */
+
+		if (ateFood > 0 && !hasEaten) {
+			ateTime = Time.timeSinceLevelLoad;
+			hasEaten = true;
+		} else if (ateFood > 0 && hasEaten) {
+			timeSinceEaten = Time.timeSinceLevelLoad - ateTime;
+			if (timeSinceEaten > durationFoodBuff) {
+				ateFood = 0;
+
+			}
+		} else {
+			hasEaten = false;
+		}
+
 
 	}
 }

@@ -151,18 +151,30 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 	}
 
 	public void UpdateCatToyStatus(int catIndex, int toy){
+		Toy currentToy = toys [toy-1];
+		currentToy.inUse = true;
+		cats [catIndex].GetComponent<Cat> ().horniness = currentToy.hornygrade;
+		cats [catIndex].GetComponent<Cat> ().usingToy = currentToy.toyIndex;
 
 	}
 	public void UpdateCatFoodStatus(int catIndex, int food){
-		Food currentFood = new Food ();
-		for (int i = 0; i < foods.Count; i++) {
-			if (foods [i].foodIndex == food) {
-				currentFood = foods [i];
-				foods.RemoveAt (i);
-				break;
-			}
-		}
 
+		if (cats [catIndex].GetComponent<Cat> ().ateFood == 0) {
+			Food currentFood = new Food ();
+			for (int i = 0; i < foods.Count; i++) {
+				if (foods [i].foodIndex == food) {
+					currentFood = foods [i];
+					foods.RemoveAt (i);
+					foodsInInventory [food - 1] -= 1;
+					break;
+				}
+			}
+
+			cats [catIndex].GetComponent<Cat> ().happiness = currentFood.fullgrade;
+			cats [catIndex].GetComponent<Cat> ().ateFood = currentFood.foodIndex;
+		} else {
+			StartCoroutine (uimanager.MessageDisplayTooFull ());
+		}
 
 	}
 }
