@@ -18,4 +18,12 @@ public class LoadScenes : MonoBehaviour {
 	public void toMainGame() {
 		SceneManager.LoadScene ("main");
 	}
+
+	public void toMainMenu() {
+		SceneManager.LoadScene ("Start");
+	}
+
+	public void toIntro() {
+		SceneManager.LoadScene ("IntroScene");
+	}
 }
