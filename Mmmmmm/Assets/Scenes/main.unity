@@ -84516,7 +84516,8 @@ MonoBehaviour:
   - {fileID: 1646651836029698, guid: 0f021917116d24299998be318b0bad09, type: 2}
   minCustomerSpawnRate: 20
   maxCustomerSpawnRate: 40
-  money: 0
+  money: 50
+  foodsInInventory: 
 --- !u!1 &2011820927
 GameObject:
   m_ObjectHideFlags: 0

@@ -91,6 +91,8 @@ public class UIManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		moneyText.text = "$"+gm.money;
+
+		UpdateFoodInventory ();
 	}
 
 	public void clickExitToCafe(){
@@ -289,6 +291,10 @@ public class UIManager : MonoBehaviour {
 		if (gm.money - cost >= 0) {
 			gm.money -= cost;
 			gm.purchaseToy (toy);
+
+			InventoryToyBookPage.transform.GetChild (toy - 1).gameObject.GetComponent<Button> ().interactable = true;
+			ShopToyBookPage.transform.GetChild (toy - 1).gameObject.GetComponent<Button> ().interactable = false;
+			clickShopToy ();
 		} else {
 			Debug.Log ("insufficient funds");
 		}
@@ -319,9 +325,21 @@ public class UIManager : MonoBehaviour {
 		if (gm.money - cost >= 0) {
 			gm.money -= cost;
 			gm.purchaseFood(food);
+			InventoryFoodBookPage.transform.GetChild (food - 1).gameObject.GetComponent<Button> ().interactable = true;
+			gm.foodsInInventory [food - 1] += 1;
 		} else {
 			Debug.Log ("insufficient funds");
 		}
 
+	}
+
+	void UpdateFoodInventory(){
+		for (int i = 1; i < InventoryFoodPages.Count; i++) {
+			InventoryFoodPages [i].transform.GetChild (4).GetChild (0).gameObject.GetComponent<Text> ().text = "IN STOCK: " + gm.foodsInInventory [i - 1];
+		}
+
+		for (int j = 1; j < ShopFoodPages.Count; j++) {
+			ShopFoodPages [j].transform.GetChild (4).GetChild (0).gameObject.GetComponent<Text> ().text = "IN STOCK: " + gm.foodsInInventory [j - 1];
+		}
 	}
 }

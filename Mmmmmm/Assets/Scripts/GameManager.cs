@@ -26,17 +26,24 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 
 	public int money;
 
-	List<Toy> toys;
-	List<Food> foods;
+	public List<Toy> toys;
+	public List<Food> foods;
+	public int[] foodsInInventory;
 
 	float moneyperiod = 0f;
 	float timeinterval = 10f;
 
 	int catIDcount;
+	UIManager uimanager;
 
 	// Use this for initialization
 	void Awake () {
+		uimanager = GameObject.FindWithTag ("UIManager").GetComponent<UIManager> ();
 		fillDestinations ();
+
+		toys = new List<Toy> ();
+		foods = new List<Food> ();
+		foodsInInventory = new int[uimanager.numOfInventoryFood];
 
 
 		catIDcount = 1;
