@@ -75,10 +75,8 @@ public class Customer : MonoBehaviour {
 			isIdle = false;
 			isInteractingWithCat = false;
 
-			print ("walking");
 
 		} else if (agent.velocity == Vector3.zero && !metacat && !isIdle) {
-			print ("idle");
 			anim.SetTrigger ("Idle");
 
 			isWalking = false;
@@ -87,7 +85,6 @@ public class Customer : MonoBehaviour {
 		} else {
 			if (!isInteractingWithCat && metacat) {
 
-				print ("caaaat");
 				int animchance = Random.Range (-1, 1);
 				if (animchance > 0) {
 					anim.SetTrigger ("InteractWithCat1");

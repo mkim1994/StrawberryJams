@@ -25,6 +25,19 @@ public class UIManager : MonoBehaviour {
 
 	public int numOfCatPages;
 
+
+	GameObject ShopFoodBookPage;
+	GameObject ShopToyBookPage;
+
+	GameObject InventoryFoodBookPage;
+	GameObject InventoryToyBookPage;
+
+	List<GameObject> InventoryToyPages;
+	List<GameObject> InventoryFoodPages;
+	List<GameObject> ShopToyPages;
+	List<GameObject> ShopFoodPages;
+	//Transform ToysShop = ShopUIElements [1].transform;
+
 	// Use this for initialization
 	void Start () {
 		CatBookCanvas.SetActive (false);
@@ -46,6 +59,25 @@ public class UIManager : MonoBehaviour {
 		foreach (Transform child in ShopCanvas.transform) {
 			ShopUIElements.Add (child.gameObject);
 		}
+
+		foreach (Transform child in ShopUIElements[1].transform) {
+			ShopToyPages.Add (child.gameObject);
+		}
+		foreach (Transform child in ShopUIElements[2].transform) {
+			ShopFoodPages.Add (child.gameObject);
+		}
+		foreach (Transform child in InventoryUIElements[1].transform) {
+			InventoryToyPages.Add (child.gameObject);
+		}
+		foreach (Transform child in InventoryUIElements[2].transform) {
+			InventoryFoodPages.Add (child.gameObject);
+		}
+
+		ShopToyBookPage = ShopUIElements [1].transform.GetChild (0).GetChild (1).gameObject;
+		ShopFoodBookPage = ShopUIElements [2].transform.GetChild (0).GetChild (1).gameObject;
+		InventoryToyBookPage = InventoryUIElements [1].transform.GetChild (0).GetChild (1).gameObject;
+		InventoryFoodBookPage = InventoryUIElements [2].transform.GetChild (0).GetChild (1).gameObject;
+
 
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 	
@@ -223,5 +255,65 @@ public class UIManager : MonoBehaviour {
 				CatBook.GetChild (i).gameObject.SetActive (false);
 			}
 		}
+	}
+
+	public void PurchaseToy(int toy){
+		int cost = 0;
+		if (toy == 1) {
+			cost = 10;
+		} else if (toy == 2) {
+			cost = 10;
+		} else if (toy == 3) {
+			cost = 20;
+		} else if (toy == 4) {
+			cost = 20;
+		} else if (toy == 5) {
+			cost = 25;
+		} else if (toy == 6) {
+			cost = 30;
+		} else if (toy == 7) {
+			cost = 40;
+		} else if (toy == 8) {
+			cost = 50;
+		} else{
+			cost = 100;
+		}
+		if (gm.money - cost >= 0) {
+			gm.money -= cost;
+			gm.purchaseToy (toy);
+		} else {
+			Debug.Log ("insufficient funds");
+		}
+
+	}
+
+	public void PurchaseFood(int food){
+		int cost = 0;
+		if (food == 1) {
+			cost = 5;
+		} else if (food == 2) {
+			cost = 5;
+		} else if (food == 3) {
+			cost = 10;
+		} else if (food == 4) {
+			cost = 10;
+		} else if (food == 5) {
+			cost = 15;
+		} else if (food == 6) {
+			cost = 15;
+		} else if (food == 7) {
+			cost = 20;
+		} else if (food == 8) {
+			cost = 25;
+		} else{
+			cost = 50;
+		}
+		if (gm.money - cost >= 0) {
+			gm.money -= cost;
+			gm.purchaseFood(food);
+		} else {
+			Debug.Log ("insufficient funds");
+		}
+
 	}
 }

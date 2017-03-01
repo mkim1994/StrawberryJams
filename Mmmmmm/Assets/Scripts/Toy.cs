@@ -5,5 +5,7 @@ using UnityEngine;
 public class Toy {
 
 	public string thename = "";
+	public int toyIndex;
 	public int hornygrade;
+
 }

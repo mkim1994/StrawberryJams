@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 	public int money;
 
 	List<Toy> toys;
-	List<Food> food;
+	List<Food> foods;
 
 	float moneyperiod = 0f;
 	float timeinterval = 10f;
@@ -89,4 +89,53 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 		customers.Add (customer);
 	}
 
+	public void purchaseToy(int toy){
+		Toy newToy = new Toy ();
+		newToy.toyIndex = toy;
+		if (toy == 1) {
+			newToy.hornygrade = 1;
+		} else if (toy == 2) {
+			newToy.hornygrade = 1;
+		} else if (toy == 3) {
+			newToy.hornygrade = 2;
+		} else if (toy == 4) {
+			newToy.hornygrade = 2;
+		} else if (toy == 5) {
+			newToy.hornygrade = 3;
+		} else if (toy == 6) {
+			newToy.hornygrade = 3;
+		} else if (toy == 7) {
+			newToy.hornygrade = 4;
+		} else if (toy == 8) {
+			newToy.hornygrade = 4;
+		} else{
+			newToy.hornygrade = 5;
+		}
+		toys.Add(newToy);
+	}
+
+	public void purchaseFood(int food){
+		Food newFood = new Food ();
+		newFood.foodIndex = food;
+		if (food == 1) {
+			newFood.fullgrade = 1;
+		} else if (food == 2) {
+			newFood.fullgrade = 1;
+		} else if (food == 3) {
+			newFood.fullgrade = 2;
+		} else if (food == 4) {
+			newFood.fullgrade = 2;
+		} else if (food == 5) {
+			newFood.fullgrade = 3;
+		} else if (food == 6) {
+			newFood.fullgrade = 3;
+		} else if (food == 7) {
+			newFood.fullgrade = 4;
+		} else if (food == 8) {
+			newFood.fullgrade = 4;
+		} else{
+			newFood.fullgrade = 5;
+		}
+		foods.Add(newFood);
+	}
 }

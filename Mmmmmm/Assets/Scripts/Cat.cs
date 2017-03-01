@@ -72,7 +72,6 @@ public class Cat : MonoBehaviour {
 
 
 		} else if (agent.velocity == Vector3.zero && !metacustomer && !isIdle) {
-			anim.SetTrigger ("Idle");
 			int animchance = Random.Range (0,3);
 			if (animchance == 0) {
 				anim.SetTrigger ("Idle1");
