@@ -291,14 +291,16 @@ public class UIManager : MonoBehaviour {
 
 		if (givingToy) {
 
-			gm.UpdateCatToyStatus (page-1);
+			gm.UpdateCatToyStatus (page-1, currentToy);
 			givingToy = false;
+			currentToy = 0;
 			clickExitToCafe ();
 		} else if (givingFood) {
 			//	clickInventoryFood ();
 
-			gm.UpdateCatFoodStatus (page-1);
+			gm.UpdateCatFoodStatus (page-1, currentFood);
 			givingFood = false;
+			currentFood = 0;
 			clickExitToCafe ();
 		} else {
 

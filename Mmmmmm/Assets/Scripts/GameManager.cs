@@ -150,10 +150,19 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 		foods.Add(newFood);
 	}
 
-	public void UpdateCatToyStatus(int catIndex){
+	public void UpdateCatToyStatus(int catIndex, int toy){
 
 	}
-	public void UpdateCatFoodStatus(int catIndex){
+	public void UpdateCatFoodStatus(int catIndex, int food){
+		Food currentFood = new Food ();
+		for (int i = 0; i < foods.Count; i++) {
+			if (foods [i].foodIndex == food) {
+				currentFood = foods [i];
+				foods.RemoveAt (i);
+				break;
+			}
+		}
+
 
 	}
 }

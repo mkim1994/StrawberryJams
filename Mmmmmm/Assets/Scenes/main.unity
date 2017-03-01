@@ -6660,7 +6660,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400142, guid: 0facf95c500d34738b04f3667fbf275c, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 128833398}
-  m_LocalRotation: {x: -0.63846815, y: 0.717395, z: -0.092292316, w: 0.26303032}
+  m_LocalRotation: {x: -0.6384682, y: 0.71739507, z: -0.09229232, w: 0.26303035}
   m_LocalPosition: {x: 1.2368311, y: 0.20756525, z: 0.1844778}
   m_LocalScale: {x: 0.8031363, y: 0.007833027, z: 0.72076046}
   m_Children: []
@@ -37534,7 +37534,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400138, guid: 0facf95c500d34738b04f3667fbf275c, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 757986699}
-  m_LocalRotation: {x: -0.63846815, y: 0.717395, z: -0.092292316, w: 0.26303032}
+  m_LocalRotation: {x: -0.6384682, y: 0.71739507, z: -0.09229232, w: 0.26303035}
   m_LocalPosition: {x: 1.3500972, y: 0.49274606, z: 0.091346264}
   m_LocalScale: {x: 0.5619065, y: 0.312231, z: 0.80574214}
   m_Children: []
@@ -52645,7 +52645,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1080901031}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveToy
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1080901031
@@ -53159,7 +53170,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1090966809}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveToy
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1090966809
@@ -55229,7 +55251,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 544
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -62462,7 +62484,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1276802136}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveToy
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1276802136
@@ -69795,7 +69828,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1405370413}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveToy
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1405370413
@@ -85296,7 +85340,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1725394134}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveToy
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1725394134
@@ -88178,7 +88233,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1782177073}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveToy
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1782177073
@@ -88484,7 +88550,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1784732389}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveToy
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1784732389
@@ -92991,7 +93068,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1872169901}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveToy
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1872169901
@@ -103703,7 +103791,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2080203458}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveToy
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2080203458
