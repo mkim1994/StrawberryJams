@@ -48,6 +48,11 @@ public class UIManager : MonoBehaviour {
 		InventoryUIElements = new List<GameObject> ();
 		ShopUIElements = new List<GameObject> ();
 
+		InventoryToyPages = new List<GameObject> ();
+		InventoryFoodPages = new List<GameObject> ();
+		ShopToyPages = new List<GameObject> ();
+		ShopFoodPages = new List<GameObject> ();
+
 		foreach (Transform child in CatBookCanvas.transform) {
 			CatUIElements.Add (child.gameObject);
 		}
@@ -128,8 +133,9 @@ public class UIManager : MonoBehaviour {
 		InventoryUIElements [1].SetActive (true);
 		InventoryUIElements [2].SetActive (false);
 
-		InventoryUIElements [1].transform.GetChild (0).gameObject.SetActive (true);
-		InventoryUIElements [1].transform.GetChild (1).gameObject.SetActive (false);
+		for (int i = 1; i < numOfInventoryToys + 1; i++) {
+			InventoryUIElements [1].transform.GetChild(i).gameObject.SetActive (false);
+		}
 	}
 
 	public void clickInventoryFood(){
@@ -137,9 +143,9 @@ public class UIManager : MonoBehaviour {
 		InventoryUIElements [1].SetActive (false);
 		InventoryUIElements [2].SetActive (true);
 
-		InventoryUIElements [2].transform.GetChild (0).gameObject.SetActive (true);
-		InventoryUIElements [2].transform.GetChild (1).gameObject.SetActive (false);
-		//InventoryUIElements [0].SetActive (false);
+		for (int i = 1; i < numOfInventoryFood + 1; i++) {
+			InventoryUIElements [2].transform.GetChild(i).gameObject.SetActive (false);
+		}
 	}
 
 	public void clickInventoryToyPage(){
@@ -167,8 +173,9 @@ public class UIManager : MonoBehaviour {
 		ShopUIElements [1].SetActive (true);
 		ShopUIElements [2].SetActive (false);
 
-		ShopUIElements [1].transform.GetChild (0).gameObject.SetActive (true);
-		ShopUIElements [1].transform.GetChild (1).gameObject.SetActive (false);
+		for (int i = 1; i < numOfShopToys + 1; i++) {
+			ShopUIElements [1].transform.GetChild(i).gameObject.SetActive (false);
+		}
 	}
 
 	public void clickShopFood(){
@@ -176,8 +183,9 @@ public class UIManager : MonoBehaviour {
 		ShopUIElements [1].SetActive (false);
 		ShopUIElements [2].SetActive (true);
 
-		ShopUIElements [2].transform.GetChild (0).gameObject.SetActive (true);
-		ShopUIElements [2].transform.GetChild (1).gameObject.SetActive (false);
+		for (int i = 1; i < numOfShopFood + 1; i++) {
+			ShopUIElements [2].transform.GetChild(i).gameObject.SetActive (false);
+		}
 	}
 
 	public void clickCatFromBook(){
