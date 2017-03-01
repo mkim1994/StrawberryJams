@@ -41,6 +41,9 @@ public class UIManager : MonoBehaviour {
 	public bool givingFood;
 	public bool givingToy;
 
+	int currentToy;
+	int currentFood;
+
 	// Use this for initialization
 	void Start () {
 		CatBookCanvas.SetActive (false);
@@ -105,19 +108,21 @@ public class UIManager : MonoBehaviour {
 		ShopCanvas.SetActive (false);
 	}
 
+	public void giveToy(int toy){
+		givingToy = true;
+		currentToy = toy;
+		clickCatBook ();
+	}
+
+	public void giveFood(int food){
+		givingFood = true;
+		currentFood = food;
+		clickCatBook ();
+	}
+
 	public void clickCatBook(){
 
-		if (givingToy) {
-		//	clickInventoryToy ();
 
-
-			givingToy = false;
-		} else if (givingFood) {
-		//	clickInventoryFood ();
-
-
-			givingFood = false;
-		} else {
 			CatBookCanvas.SetActive (true);
 			InventoryCanvas.SetActive (false);
 			ShopCanvas.SetActive (false);
@@ -126,7 +131,7 @@ public class UIManager : MonoBehaviour {
 			for (int i = 1; i < numOfCatPages + 1; i++) {
 				CatUIElements [i].SetActive (false);
 			}
-		}
+
 
 	}
 	public void clickInventory(){
@@ -284,6 +289,18 @@ public class UIManager : MonoBehaviour {
 	public void flipThroughPagesCat(int page){
 		//Transform CatBook = CatUIElements [1].transform;
 
+		if (givingToy) {
+
+			gm.UpdateCatToyStatus (page-1);
+			givingToy = false;
+			clickExitToCafe ();
+		} else if (givingFood) {
+			//	clickInventoryFood ();
+
+			gm.UpdateCatFoodStatus (page-1);
+			givingFood = false;
+			clickExitToCafe ();
+		} else {
 
 			CatUIElements [0].gameObject.SetActive (false);
 
@@ -294,7 +311,7 @@ public class UIManager : MonoBehaviour {
 					CatUIElements [i].gameObject.SetActive (false);
 				}
 			}
-			
+		}		
 	}
 
 	public void PurchaseToy(int toy){

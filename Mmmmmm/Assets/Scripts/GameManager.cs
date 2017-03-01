@@ -149,4 +149,11 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 		}
 		foods.Add(newFood);
 	}
+
+	public void UpdateCatToyStatus(int catIndex){
+
+	}
+	public void UpdateCatFoodStatus(int catIndex){
+
+	}
 }

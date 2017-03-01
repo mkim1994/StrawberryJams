@@ -56,7 +56,6 @@ public class Cat : MonoBehaviour {
 		anim = transform.GetChild (0).gameObject.GetComponent<Animator> ();
 
 		agent = GetComponent<NavMeshAgent> ();
-		//agent.avoidancePriority = Random.Range (60, 100);
 
 		interactionrange = GetComponent<SphereCollider> ();
 		canmove = true;

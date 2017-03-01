@@ -4601,11 +4601,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4392378218174212, guid: 35fed72f2488e4a68b7abc0a43dbdcc9, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1206763868830906, guid: 35fed72f2488e4a68b7abc0a43dbdcc9, type: 2}
       propertyPath: m_Name
-      value: Cat2
+      value: Cat1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
@@ -6269,7 +6269,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 120084235}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveFood
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &120084235
@@ -6649,7 +6660,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400142, guid: 0facf95c500d34738b04f3667fbf275c, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 128833398}
-  m_LocalRotation: {x: -0.6384682, y: 0.71739507, z: -0.09229232, w: 0.26303035}
+  m_LocalRotation: {x: -0.63846815, y: 0.717395, z: -0.092292316, w: 0.26303032}
   m_LocalPosition: {x: 1.2368311, y: 0.20756525, z: 0.1844778}
   m_LocalScale: {x: 0.8031363, y: 0.007833027, z: 0.72076046}
   m_Children: []
@@ -31015,7 +31026,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 627764856}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveFood
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &627764856
@@ -37512,7 +37534,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400138, guid: 0facf95c500d34738b04f3667fbf275c, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 757986699}
-  m_LocalRotation: {x: -0.6384682, y: 0.71739507, z: -0.09229232, w: 0.26303035}
+  m_LocalRotation: {x: -0.63846815, y: 0.717395, z: -0.092292316, w: 0.26303032}
   m_LocalPosition: {x: 1.3500972, y: 0.49274606, z: 0.091346264}
   m_LocalScale: {x: 0.5619065, y: 0.312231, z: 0.80574214}
   m_Children: []
@@ -39056,7 +39078,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 799751727}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveFood
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &799751727
@@ -41511,11 +41544,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4392378218174212, guid: 35fed72f2488e4a68b7abc0a43dbdcc9, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1206763868830906, guid: 35fed72f2488e4a68b7abc0a43dbdcc9, type: 2}
       propertyPath: m_Name
-      value: Cat1
+      value: Cat3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35fed72f2488e4a68b7abc0a43dbdcc9, type: 2}
@@ -51275,7 +51308,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1058096550}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveFood
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1058096550
@@ -54111,7 +54155,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1110623048}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveFood
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1110623048
@@ -61138,7 +61193,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1244582352}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveFood
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1244582352
@@ -62270,6 +62336,8 @@ MonoBehaviour:
   numOfShopFood: 9
   numOfInventoryFood: 9
   numOfCatPages: 9
+  givingFood: 0
+  givingToy: 0
 --- !u!1 &1276102885
 GameObject:
   m_ObjectHideFlags: 0
@@ -80960,7 +81028,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1655876947}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveFood
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1655876947
@@ -81253,7 +81332,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1659976053}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveFood
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1659976053
@@ -85392,11 +85482,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4392378218174212, guid: 35fed72f2488e4a68b7abc0a43dbdcc9, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1206763868830906, guid: 35fed72f2488e4a68b7abc0a43dbdcc9, type: 2}
       propertyPath: m_Name
-      value: Cat3
+      value: Cat2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
@@ -105748,7 +105838,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2120385269}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1273002095}
+        m_MethodName: giveFood
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2120385269
