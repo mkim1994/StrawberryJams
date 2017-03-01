@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour { //+hacky EventManager
 
-	public GameObject censored;
 
 	[HideInInspector]
 	public List<Transform> catdestinations;
@@ -26,7 +25,8 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 
 	public int money;
 
-	public List<Toy> toys;
+	//public List<Toy> toys;
+	public Toy[] toys;
 	public List<Food> foods;
 	public int[] foodsInInventory;
 
@@ -36,12 +36,16 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 	int catIDcount;
 	UIManager uimanager;
 
+	public GameObject[] existingCats;
+
+	public int activeCats;
+
 	// Use this for initialization
 	void Awake () {
 		uimanager = GameObject.FindWithTag ("UIManager").GetComponent<UIManager> ();
 		fillDestinations ();
 
-		toys = new List<Toy> ();
+		toys = new Toy[uimanager.numOfShopToys];
 		foods = new List<Food> ();
 		foodsInInventory = new int[uimanager.numOfInventoryFood];
 
@@ -55,6 +59,8 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Customer")) {
 			customers.Add (go);
 		}
+
+		activeCats = 3;
 	}
 
 	void Start(){
@@ -71,6 +77,7 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 			Application.LoadLevel ("main");
 		}
 
+		UpdateCatStatus ();
 
 		CountMoney ();
 		//CheckSexyTimes ();
@@ -122,7 +129,7 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 		} else{
 			newToy.hornygrade = 5;
 		}
-		toys.Add(newToy);
+		toys[toy-1] = newToy;
 	}
 
 	public void purchaseFood(int food){
@@ -149,7 +156,7 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 		}
 		foods.Add(newFood);
 	}
-
+		
 	public void UpdateCatToyStatus(int catIndex, int toy){
 		Toy currentToy = toys [toy-1];
 		currentToy.inUse = true;
@@ -174,6 +181,16 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 			cats [catIndex].GetComponent<Cat> ().ateFood = currentFood.foodIndex;
 		} else {
 			StartCoroutine (uimanager.MessageDisplayTooFull ());
+		}
+
+	}
+		
+	public void UpdateCatStatus(){
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Cat")) {
+			if (!cats.Contains (go)) {
+				cats.Add (go);
+				activeCats++;
+			}
 		}
 
 	}

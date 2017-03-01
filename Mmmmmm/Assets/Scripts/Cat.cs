@@ -25,6 +25,7 @@ public class Cat : MonoBehaviour {
 	public int ateFood;
 	public int usingToy;
 
+	public int babyChance;
 
 
 	private bool canmove;
@@ -56,6 +57,9 @@ public class Cat : MonoBehaviour {
 	float ateTime;
 	public float timeSinceEaten;
 	public float durationFoodBuff = 30f;
+
+	bool kittenBorn;
+	bool hadBaby;
 
 	void Start () {
 
@@ -147,16 +151,24 @@ public class Cat : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if (!doingthings && other.gameObject.tag == "Cat") {
 
-			theOtherCatID = other.GetComponent<Cat> ().uniqueID;
-			doingthings = true;
-			metacat = true;
-			canmove = false;
+			if (other.GetComponent<Cat> ().horniness > 0 && horniness > 0 ) {
 
-			agent.Stop ();
+				//babyChance = Random.Range (0, other.GetComponent<Cat> ().horniness + horniness);
+				//babyChance = babyChance / 10f
+				babyChance = other.GetComponent<Cat>().horniness+horniness;
 
-			interactionrange.enabled = false;
+				theOtherCatID = other.GetComponent<Cat> ().uniqueID;
 
-			target = other.transform;
+				doingthings = true;
+				metacat = true;
+				canmove = false;
+
+				agent.Stop ();
+
+				interactionrange.enabled = false;
+
+				target = other.transform;
+			}
 		} else if (!doingthings && other.gameObject.tag == "Customer") {
 			doingthings = true;
 			metacustomer = true;
@@ -179,6 +191,36 @@ public class Cat : MonoBehaviour {
 
 		yield return new WaitForSeconds (sexytimesDuration);
 
+		if (!hadBaby) {
+			float baby = Random.Range (0, 1f);
+			if (babyChance > 8) {
+				//baby = 1f;
+				kittenBorn = true;
+
+			} else if (babyChance > 7 && baby < 0.8f) {
+				kittenBorn = true;
+				//baby = 0.8f
+			} else if (babyChance > 5 && baby < 0.6f) {
+				kittenBorn = true;
+				//baby = 0.6f
+			} else if (babyChance > 3 && baby < 0.4f) {
+				kittenBorn = true;
+				//baby = 0.4f
+			} else if (babyChance > 1 && baby < 0.2f) {
+				kittenBorn = true;
+				//baby = 0.2f
+			} else {
+				kittenBorn = false;
+			}
+
+			if (kittenBorn && gm.activeCats < 9) {
+				Debug.Log (gm.activeCats);
+				gm.existingCats [gm.activeCats].SetActive (true);
+				kittenBorn = false;
+			} 
+			hadBaby = true;
+		}
+
 		theOtherCatID = 0;
 
 		sexytimes = false;
@@ -197,6 +239,7 @@ public class Cat : MonoBehaviour {
 		metacat = false;
 		doingthings = false;
 		interactionrange.enabled = true;
+		hadBaby = false;
 	}
 	IEnumerator StartDoingThingsCustomer(){
 		yield return new WaitForSeconds (5f);

@@ -38,6 +38,9 @@ public class UIManager : MonoBehaviour {
 	List<GameObject> InventoryFoodPages;
 	List<GameObject> ShopToyPages;
 	List<GameObject> ShopFoodPages;
+
+	GameObject CatBook;
+
 	//Transform ToysShop = ShopUIElements [1].transform;
 
 	public bool givingFood;
@@ -94,6 +97,7 @@ public class UIManager : MonoBehaviour {
 		InventoryToyBookPage = InventoryUIElements [1].transform.GetChild (0).GetChild (1).gameObject;
 		InventoryFoodBookPage = InventoryUIElements [2].transform.GetChild (0).GetChild (1).gameObject;
 
+		CatBook = CatUIElements [0].transform.GetChild (1).gameObject;
 
 		gm = GameObject.FindWithTag ("GameManager").GetComponent<GameManager> ();
 	
@@ -104,6 +108,8 @@ public class UIManager : MonoBehaviour {
 		moneyText.text = "$"+gm.money;
 
 		UpdateFoodInventory ();
+
+		UpdateCatBook ();
 		UpdateCatCurrentPage ();
 	}
 
@@ -423,6 +429,13 @@ public class UIManager : MonoBehaviour {
 				catpage.GetChild (6).gameObject.SetActive (false);
 				catpage.GetChild (7).gameObject.SetActive (true);
 			}
+		}
+	}
+
+	void UpdateCatBook(){
+		for (int i = 0; i < gm.cats.Count; i++) {
+			CatBook.transform.GetChild (i).gameObject.GetComponent<Button> ().interactable = true;
+			CatBook.transform.GetChild (i).GetChild(0).gameObject.SetActive (true);
 		}
 	}
 
