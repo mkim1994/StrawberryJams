@@ -61,8 +61,16 @@ public class Cat : MonoBehaviour {
 	bool kittenBorn;
 	bool hadBaby;
 
-	void Start () {
+	AudioManager audiomanager;
 
+
+	UIManager uimanager;
+
+	bool starteddoingthings;
+
+	void Start () {
+		audiomanager = GameObject.FindWithTag ("AudioManager").GetComponent<AudioManager> ();
+		uimanager = GameObject.FindWithTag ("UIManager").GetComponent<UIManager> ();
 		anim = transform.GetChild (0).gameObject.GetComponent<Animator> ();
 
 		agent = GetComponent<NavMeshAgent> ();
@@ -122,9 +130,13 @@ public class Cat : MonoBehaviour {
 
 		if (doingthings && target != null) {
 			faceEachOther ();
-			if (metacat) {
+			if (metacat && !starteddoingthings) {
+
+				starteddoingthings = true;
 				StartCoroutine (StartDoingThingsCat());
-			} else if (metacustomer) {
+			} else if (metacustomer && !starteddoingthings) {
+
+				starteddoingthings = true;
 				StartCoroutine (StartDoingThingsCustomer());
 			}
 		}
@@ -180,11 +192,13 @@ public class Cat : MonoBehaviour {
 
 			target = other.transform;
 
+			audiomanager.catmetcustomer.PlayOneShot (audiomanager.catmetcustomer.clip);
+
 		}
 	}
 
 	IEnumerator StartDoingThingsCat(){
-
+		audiomanager.cathorny.PlayOneShot (audiomanager.cathorny.clip);
 		sexytimes = true;
 
 		transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -217,7 +231,11 @@ public class Cat : MonoBehaviour {
 				Debug.Log (gm.activeCats);
 				gm.existingCats [gm.activeCats].SetActive (true);
 				kittenBorn = false;
-			} 
+				audiomanager.catborn.PlayOneShot (audiomanager.catborn.clip);
+
+			} else if (kittenBorn && gm.activeCats >= 9) {
+				StartCoroutine (uimanager.MessageDisplayTooMuchSex ());
+			}
 			hadBaby = true;
 		}
 
@@ -240,6 +258,7 @@ public class Cat : MonoBehaviour {
 		doingthings = false;
 		interactionrange.enabled = true;
 		hadBaby = false;
+		starteddoingthings = false;
 	}
 	IEnumerator StartDoingThingsCustomer(){
 		yield return new WaitForSeconds (5f);
@@ -252,6 +271,7 @@ public class Cat : MonoBehaviour {
 		metacustomer = false;
 		doingthings = false;
 		interactionrange.enabled = true;
+		starteddoingthings = false;
 	}
 
 	void faceEachOther(){

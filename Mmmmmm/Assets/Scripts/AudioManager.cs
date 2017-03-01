@@ -8,6 +8,10 @@ public class AudioManager : MonoBehaviour {
 	public AudioSource UIbuttonclick;
 	public AudioSource UIbuttonback;
 	public AudioSource purchase;
+	public AudioSource cathorny;
+	public AudioSource catmetcustomer;
+	public AudioSource cateat;
+	public AudioSource catborn;
 
 	/*
 	 * Use "GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>()" to access

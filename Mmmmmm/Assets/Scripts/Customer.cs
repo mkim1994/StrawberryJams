@@ -37,6 +37,8 @@ public class Customer : MonoBehaviour {
 	bool isIdle;
 	bool isInteractingWithCat;
 
+	bool starteddoingthings;
+
 	Animator anim; //triggers: Walking, Idle, InteractWithCat1, InteractWithCat2
 
 
@@ -137,8 +139,8 @@ public class Customer : MonoBehaviour {
 
 				if (doingthings && target != null) {
 					faceEachOther ();
-					if (metacat) {
-						
+					if (metacat && !starteddoingthings) {
+						starteddoingthings = true;
 						StartCoroutine (StartDoingThingsCat ());
 					}
 				}
@@ -226,6 +228,7 @@ public class Customer : MonoBehaviour {
 		yield return new WaitForSeconds (10f);
 		doingthings = false;
 		interactionrange.enabled = true;
+		starteddoingthings = false;
 
 	}
 }

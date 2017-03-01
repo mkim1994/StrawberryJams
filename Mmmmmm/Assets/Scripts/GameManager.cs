@@ -40,8 +40,11 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 
 	public int activeCats;
 
+	AudioManager audiomanager;
+
 	// Use this for initialization
 	void Awake () {
+		audiomanager = GameObject.FindWithTag ("AudioManager").GetComponent<AudioManager> ();
 		uimanager = GameObject.FindWithTag ("UIManager").GetComponent<UIManager> ();
 		fillDestinations ();
 
@@ -179,6 +182,7 @@ public class GameManager : MonoBehaviour { //+hacky EventManager
 
 			cats [catIndex].GetComponent<Cat> ().happiness = currentFood.fullgrade;
 			cats [catIndex].GetComponent<Cat> ().ateFood = currentFood.foodIndex;
+			audiomanager.cateat.PlayOneShot (audiomanager.cateat.clip);
 		} else {
 			StartCoroutine (uimanager.MessageDisplayTooFull ());
 		}

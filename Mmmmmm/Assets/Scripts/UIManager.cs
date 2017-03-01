@@ -52,8 +52,12 @@ public class UIManager : MonoBehaviour {
 	public Sprite[] toySprites;
 	public Sprite[] foodSprites;
 
+	AudioManager audiomanager;
+
 	// Use this for initialization
 	void Start () {
+		audiomanager = GameObject.FindWithTag ("AudioManager").GetComponent<AudioManager> ();
+
 		CatBookCanvas.SetActive (false);
 		InventoryCanvas.SetActive (false);
 		ShopCanvas.SetActive (false);
@@ -349,6 +353,7 @@ public class UIManager : MonoBehaviour {
 			cost = 100;
 		}
 		if (gm.money - cost >= 0) {
+			audiomanager.purchase.PlayOneShot (audiomanager.purchase.clip);
 			gm.money -= cost;
 			gm.purchaseToy (toy);
 
@@ -384,6 +389,7 @@ public class UIManager : MonoBehaviour {
 			cost = 50;
 		}
 		if (gm.money - cost >= 0) {
+			audiomanager.purchase.PlayOneShot (audiomanager.purchase.clip);
 			gm.money -= cost;
 			gm.purchaseFood(food);
 			InventoryFoodBookPage.transform.GetChild (food - 1).gameObject.GetComponent<Button> ().interactable = true;
@@ -449,5 +455,11 @@ public class UIManager : MonoBehaviour {
 		MainMenuCanvas.transform.GetChild (5).gameObject.SetActive (true);
 		yield return new WaitForSeconds (4f);
 		MainMenuCanvas.transform.GetChild (5).gameObject.SetActive (false);
+	}
+
+	public IEnumerator MessageDisplayTooMuchSex(){
+		MainMenuCanvas.transform.GetChild (6).gameObject.SetActive (true);
+		yield return new WaitForSeconds (4f);
+		MainMenuCanvas.transform.GetChild (6).gameObject.SetActive (false);
 	}
 }
