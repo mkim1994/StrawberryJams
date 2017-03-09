@@ -1,0 +1,703 @@
+fileFormatVersion: 2
+guid: dfed0abcf2f8e485596cd688d59caa33
+timeCreated: 1487875563
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: ikHandle1
+    100004: ikHandle2
+    100006: ikHandle3
+    100008: ikHandle4
+    100010: joint1
+    100012: joint10
+    100014: joint11
+    100016: joint12
+    100018: joint13
+    100020: joint14
+    100022: joint15
+    100024: joint16
+    100026: joint17
+    100028: joint18
+    100030: joint19
+    100032: joint2
+    100034: joint20
+    100036: joint21
+    100038: joint22
+    100040: joint3
+    100042: joint4
+    100044: joint5
+    100046: joint6
+    100048: joint7
+    100050: joint8
+    100052: joint9
+    100054: nurbsCircle1
+    100056: nurbsCircle10
+    100058: nurbsCircle11
+    100060: nurbsCircle12
+    100062: nurbsCircle2
+    100064: nurbsCircle3
+    100066: nurbsCircle4
+    100068: nurbsCircle5
+    100070: nurbsCircle6
+    100072: nurbsCircle7
+    100074: nurbsCircle8
+    100076: nurbsCircle9
+    100078: pPlane18
+    400000: //RootNode
+    400002: ikHandle1
+    400004: ikHandle2
+    400006: ikHandle3
+    400008: ikHandle4
+    400010: joint1
+    400012: joint10
+    400014: joint11
+    400016: joint12
+    400018: joint13
+    400020: joint14
+    400022: joint15
+    400024: joint16
+    400026: joint17
+    400028: joint18
+    400030: joint19
+    400032: joint2
+    400034: joint20
+    400036: joint21
+    400038: joint22
+    400040: joint3
+    400042: joint4
+    400044: joint5
+    400046: joint6
+    400048: joint7
+    400050: joint8
+    400052: joint9
+    400054: nurbsCircle1
+    400056: nurbsCircle10
+    400058: nurbsCircle11
+    400060: nurbsCircle12
+    400062: nurbsCircle2
+    400064: nurbsCircle3
+    400066: nurbsCircle4
+    400068: nurbsCircle5
+    400070: nurbsCircle6
+    400072: nurbsCircle7
+    400074: nurbsCircle8
+    400076: nurbsCircle9
+    400078: pPlane18
+    4300000: pPlane18
+    7400000: walk
+    7400002: idle-looking at cat
+    7400004: idle-kneeling
+    7400006: idle
+    7400008: sittingOnTable2
+    9500000: //RootNode
+    13700000: pPlane18
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: walk
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: ikHandle3
+        weight: 1
+      - path: ikHandle4
+        weight: 1
+      - path: joint6
+        weight: 1
+      - path: joint6/joint5
+        weight: 1
+      - path: joint6/joint5/joint4
+        weight: 1
+      - path: joint6/joint5/joint4/joint3
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint2
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint2/joint1
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15/joint16
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15/joint16/joint17
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15/joint16/joint17/joint18
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19/joint20
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19/joint20/joint21
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19/joint20/joint21/joint22
+        weight: 1
+      - path: joint6/joint7
+        weight: 1
+      - path: joint6/joint7/joint8
+        weight: 1
+      - path: joint6/joint7/joint8/joint9
+        weight: 1
+      - path: joint6/joint7/joint8/joint9/joint10
+        weight: 1
+      - path: joint6/joint11
+        weight: 1
+      - path: joint6/joint11/joint12
+        weight: 1
+      - path: joint6/joint11/joint12/joint13
+        weight: 1
+      - path: joint6/joint11/joint12/joint13/joint14
+        weight: 1
+      - path: nurbsCircle2
+        weight: 1
+      - path: nurbsCircle3
+        weight: 1
+      - path: nurbsCircle4
+        weight: 1
+      - path: nurbsCircle7
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle5
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle6
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle8
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle11
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle12
+        weight: 1
+      - path: nurbsCircle10
+        weight: 1
+      - path: pPlane18
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: idle-looking at cat
+      takeName: Take 001
+      firstFrame: 42
+      lastFrame: 78
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: ikHandle3
+        weight: 1
+      - path: ikHandle4
+        weight: 1
+      - path: joint6
+        weight: 1
+      - path: joint6/joint5
+        weight: 1
+      - path: joint6/joint5/joint4
+        weight: 1
+      - path: joint6/joint5/joint4/joint3
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint2
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint2/joint1
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15/joint16
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15/joint16/joint17
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15/joint16/joint17/joint18
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19/joint20
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19/joint20/joint21
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19/joint20/joint21/joint22
+        weight: 1
+      - path: joint6/joint7
+        weight: 1
+      - path: joint6/joint7/joint8
+        weight: 1
+      - path: joint6/joint7/joint8/joint9
+        weight: 1
+      - path: joint6/joint7/joint8/joint9/joint10
+        weight: 1
+      - path: joint6/joint11
+        weight: 1
+      - path: joint6/joint11/joint12
+        weight: 1
+      - path: joint6/joint11/joint12/joint13
+        weight: 1
+      - path: joint6/joint11/joint12/joint13/joint14
+        weight: 1
+      - path: nurbsCircle2
+        weight: 1
+      - path: nurbsCircle3
+        weight: 1
+      - path: nurbsCircle4
+        weight: 1
+      - path: nurbsCircle7
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle5
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle6
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle8
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle11
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle12
+        weight: 1
+      - path: nurbsCircle10
+        weight: 1
+      - path: pPlane18
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: idle-kneeling
+      takeName: Take 001
+      firstFrame: 82
+      lastFrame: 119
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: ikHandle3
+        weight: 1
+      - path: ikHandle4
+        weight: 1
+      - path: joint6
+        weight: 1
+      - path: joint6/joint5
+        weight: 1
+      - path: joint6/joint5/joint4
+        weight: 1
+      - path: joint6/joint5/joint4/joint3
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint2
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint2/joint1
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15/joint16
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15/joint16/joint17
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15/joint16/joint17/joint18
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19/joint20
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19/joint20/joint21
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19/joint20/joint21/joint22
+        weight: 1
+      - path: joint6/joint7
+        weight: 1
+      - path: joint6/joint7/joint8
+        weight: 1
+      - path: joint6/joint7/joint8/joint9
+        weight: 1
+      - path: joint6/joint7/joint8/joint9/joint10
+        weight: 1
+      - path: joint6/joint11
+        weight: 1
+      - path: joint6/joint11/joint12
+        weight: 1
+      - path: joint6/joint11/joint12/joint13
+        weight: 1
+      - path: joint6/joint11/joint12/joint13/joint14
+        weight: 1
+      - path: nurbsCircle2
+        weight: 1
+      - path: nurbsCircle3
+        weight: 1
+      - path: nurbsCircle4
+        weight: 1
+      - path: nurbsCircle7
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle5
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle6
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle8
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle11
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle12
+        weight: 1
+      - path: nurbsCircle10
+        weight: 1
+      - path: pPlane18
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 122
+      lastFrame: 158
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: ikHandle3
+        weight: 1
+      - path: ikHandle4
+        weight: 1
+      - path: joint6
+        weight: 1
+      - path: joint6/joint5
+        weight: 1
+      - path: joint6/joint5/joint4
+        weight: 1
+      - path: joint6/joint5/joint4/joint3
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint2
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint2/joint1
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15/joint16
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15/joint16/joint17
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15/joint16/joint17/joint18
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19/joint20
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19/joint20/joint21
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19/joint20/joint21/joint22
+        weight: 1
+      - path: joint6/joint7
+        weight: 1
+      - path: joint6/joint7/joint8
+        weight: 1
+      - path: joint6/joint7/joint8/joint9
+        weight: 1
+      - path: joint6/joint7/joint8/joint9/joint10
+        weight: 1
+      - path: joint6/joint11
+        weight: 1
+      - path: joint6/joint11/joint12
+        weight: 1
+      - path: joint6/joint11/joint12/joint13
+        weight: 1
+      - path: joint6/joint11/joint12/joint13/joint14
+        weight: 1
+      - path: nurbsCircle2
+        weight: 1
+      - path: nurbsCircle3
+        weight: 1
+      - path: nurbsCircle4
+        weight: 1
+      - path: nurbsCircle7
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle5
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle6
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle8
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle11
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle12
+        weight: 1
+      - path: nurbsCircle10
+        weight: 1
+      - path: pPlane18
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: sittingOnTable2
+      takeName: Take 001
+      firstFrame: 161
+      lastFrame: 199
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: ikHandle3
+        weight: 1
+      - path: ikHandle4
+        weight: 1
+      - path: joint6
+        weight: 1
+      - path: joint6/joint5
+        weight: 1
+      - path: joint6/joint5/joint4
+        weight: 1
+      - path: joint6/joint5/joint4/joint3
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint2
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint2/joint1
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15/joint16
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15/joint16/joint17
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint15/joint16/joint17/joint18
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19/joint20
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19/joint20/joint21
+        weight: 1
+      - path: joint6/joint5/joint4/joint3/joint19/joint20/joint21/joint22
+        weight: 1
+      - path: joint6/joint7
+        weight: 1
+      - path: joint6/joint7/joint8
+        weight: 1
+      - path: joint6/joint7/joint8/joint9
+        weight: 1
+      - path: joint6/joint7/joint8/joint9/joint10
+        weight: 1
+      - path: joint6/joint11
+        weight: 1
+      - path: joint6/joint11/joint12
+        weight: 1
+      - path: joint6/joint11/joint12/joint13
+        weight: 1
+      - path: joint6/joint11/joint12/joint13/joint14
+        weight: 1
+      - path: nurbsCircle2
+        weight: 1
+      - path: nurbsCircle3
+        weight: 1
+      - path: nurbsCircle4
+        weight: 1
+      - path: nurbsCircle7
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle5
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle6
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle8
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle11
+        weight: 1
+      - path: nurbsCircle7/nurbsCircle1/nurbsCircle9/nurbsCircle12
+        weight: 1
+      - path: nurbsCircle10
+        weight: 1
+      - path: pPlane18
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
