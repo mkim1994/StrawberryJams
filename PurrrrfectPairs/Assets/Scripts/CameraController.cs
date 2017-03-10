@@ -6,8 +6,6 @@ public class CameraController : MonoBehaviour {
 
 	float minZoom = 2f;
 	float maxZoom = 11f;
-	/*float minX = 1.2
-	float maxMove;*/
 
 	float minX = -4f;
 	float minY = 4.7f;
