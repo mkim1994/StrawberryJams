@@ -15,30 +15,32 @@ public class ColliderBehavior : MonoBehaviour {
 		
 	}
 
+	//change this so it just uses state machine's state (currentstate)
+
 	void OnTriggerEnter(Collider other){ //for cats
 		if (other.gameObject.transform.parent.tag == "Cat") {
-			if (AgentManager.instance.activeCatIndices.Count < 2) {
 			
-				AgentManager.instance.activeCatIndices.Add (GetComponentInParent<Cat> ().index);
-				GetComponentInParent<Cat> ().canDoThings = false;
-				GetComponentInParent<Cat> ().metCat = true;
-				other.gameObject.GetComponentInParent<Cat> ().canDoThings = false;
-				GetComponent<BoxCollider> ().enabled = false;
+			Cat thiscat = GetComponentInParent<Cat>();
+			Cat othercat = other.gameObject.GetComponentInParent<Cat> ();
 
-				GetComponentInParent<Cat> ().interactionTarget = other.gameObject.GetComponentInParent<Cat> ().pathfinding.transform;
+			if(!thiscat.restingFromInteraction &&  !othercat.restingFromInteraction){
+				thiscat.interactionTarget = othercat.pathfinding.transform;
+				othercat.interactionTarget = thiscat.pathfinding.transform;
 
+				thiscat.canDoThings = false;
+				othercat.canDoThings = false;
 
-			
+				thiscat.restingFromInteraction = true;
+				othercat.restingFromInteraction = true;
+
+				thiscat.metCat = true;
+				othercat.metCat = true;
 			}
-			 /*else if (transform.parent.tag == "Customer") {
-				if (!other.gameObject.GetComponentInParent<Cat> ().canDoThings) {
-					GetComponentInParent<Customer> ().ChangeDestination ();
-				}
-			}*/
+
 
 		} else if (other.gameObject.transform.parent.tag == "Customer") {
 			if (AgentManager.instance.activeHappyIndices.Count < 2 && GetComponentInParent<Cat> ().canDoThings && other.gameObject.GetComponentInParent<Customer> ().canDoThings) {
-				AgentManager.instance.activeHappyIndices.Add (GetComponentInParent<Cat> ().index);
+				AgentManager.instance.activeHappyIndices.Add (GetComponentInParent<Cat> ().uniqueID);
 				AgentManager.instance.activeHappyIndices.Add (other.gameObject.GetComponentInParent<Customer> ().index);
 				GetComponent<BoxCollider> ().enabled = false;
 				other.gameObject.GetComponent<BoxCollider> ().enabled = false;

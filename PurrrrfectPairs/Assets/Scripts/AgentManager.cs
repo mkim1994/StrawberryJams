@@ -14,6 +14,9 @@ public class AgentManager : MonoBehaviour {
 	private static AgentManager agentManager;
 
 	//public static AgentManager stance;
+	public Transform kittySpawnPoint;
+
+	public List<int> CatsHavingSex;
 
 	public static AgentManager instance{
 		get{
@@ -32,6 +35,7 @@ public class AgentManager : MonoBehaviour {
 	}
 
 	void Init(){
+		
 		cats = new List<GameObject> ();
 		customers = new List<GameObject> ();
 		GameObject[] catObjs = GameObject.FindGameObjectsWithTag ("Cat");
@@ -39,7 +43,7 @@ public class AgentManager : MonoBehaviour {
 
 		int count = 0;
 		foreach (GameObject c in catObjs) {
-			c.GetComponent<Cat> ().index = count;
+			c.GetComponent<Cat> ().uniqueID = count;
 			cats.Add (c);
 			count++;
 		}
@@ -63,6 +67,7 @@ public class AgentManager : MonoBehaviour {
 		activeCatIndices = new List<int> ();
 		activeHappyIndices = new List<int> ();
 
+
 	}
 
 	public TargetDestination[] GetTargetDestinations(){
@@ -77,13 +82,13 @@ public class AgentManager : MonoBehaviour {
 		return customers;
 	}
 
+
 	// Use this for initialization
 	void Start () {
-		/*EventManager.StartListening ("CatInteractWithCat", CatInteractWithCat);
-		EventManager.StartListening ("CatInteractWithCustomer", CatInteractWithCustomer);*/
+		EventManager.StartListening ("PopOutKitty", PopOutKitty);
 
 		//assign destinations to the pre-existing cats
-		int destCount = 0;
+	/*	int destCount = 0;
 		foreach (GameObject cat in instance.cats) {
 			cat.GetComponent<Cat> ().SetDestination (targetDestinations [destCount].position);
 			destCount++;
@@ -91,42 +96,57 @@ public class AgentManager : MonoBehaviour {
 		foreach (GameObject customer in instance.customers) {
 			customer.GetComponent<Customer> ().SetDestination (targetDestinations [destCount].position);
 			destCount++;
-		}
+		}*/
 	}
+
+
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		CatInteractWithCat ();
-		CatInteractWithCustomer ();
-		//Debug.Log (activeCatIndices.Count);
+		//CatInteractWithCat ();
+	//	CatInteractWithCustomer ();
 	}
 
+
+	//event
+	public void PopOutKitty(){
+		if (CatsHavingSex.Count > 1) {
+			CatsHavingSex.RemoveAt (0);
+			CatsHavingSex.RemoveAt (0);
+			GameObject instance = Instantiate(Resources.Load("Prefab/Cat")) as GameObject;
+			instance.transform.position = kittySpawnPoint.position;
+		}
+
+	}
+
+	/*
 	public void CatInteractWithCat(){
 
 		if (activeCatIndices.Count == 2) {
-			StartCoroutine (CatSex(activeCatIndices [0], activeCatIndices [1]));
-			activeCatIndices.Clear ();
+			if (cats [activeCatIndices[0]].GetComponent<Cat> ().canDoThings && cats [activeCatIndices[1]].GetComponent<Cat> ().canDoThings) {
+				StartCoroutine (CatSex (activeCatIndices [0], activeCatIndices [1]));
+				activeCatIndices.Clear ();
+			}
 
 		}
 
 	}
 
+
 	IEnumerator CatSex(int cat1, int cat2){
-		cats [cat1].GetComponent<Cat> ().EnableObstacle ();
-		cats [cat2].GetComponent<Cat> ().EnableObstacle ();
 		Vector3 explicitPos = Vector3.Lerp (cats [cat1].GetComponent<Cat> ().pathfinding.transform.position, 
 			                      cats [cat2].GetComponent<Cat> ().pathfinding.transform.position, 0.5f);
 		GameObject instance = Instantiate(Resources.Load("Prefab/ExplicitSign")) as GameObject;
 		instance.transform.position = explicitPos;
 		yield return new WaitForSeconds (2f);
 		Destroy (instance);
-		cats [cat1].GetComponent<Cat> ().DisableObstacle ();
-		cats [cat2].GetComponent<Cat> ().DisableObstacle ();
+
+		cats [cat1].GetComponent<Cat> ().canDoThings = true; 
+		cats [cat2].GetComponent<Cat> ().canDoThings = true;
 
 		yield return new WaitForSeconds (2f);
-		cats [cat1].GetComponent<Cat> ().pathfinding.GetComponent<BoxCollider> ().enabled = true;
-		cats [cat2].GetComponent<Cat> ().pathfinding.GetComponent<BoxCollider> ().enabled = true;
 	}
+
 
 	public void CatInteractWithCustomer(){
 		if (activeHappyIndices.Count == 2) {
@@ -136,10 +156,10 @@ public class AgentManager : MonoBehaviour {
 
 	}
 	IEnumerator CatHappy(int cat, int customer){
-		cats [cat].GetComponent<Cat> ().EnableObstacle ();
+		cats [cat].GetComponent<Cat> ().DisableAgent ();
 		customers [customer].GetComponent<Customer> ().EnableObstacle ();
 		yield return new WaitForSeconds (2f);
-		cats [cat].GetComponent<Cat> ().DisableObstacle ();
+		cats [cat].GetComponent<Cat> ().EnableAgent ();
 		customers [customer].GetComponent<Customer> ().DisableObstacle ();
 
 		yield return new WaitForSeconds (4f);
@@ -148,4 +168,6 @@ public class AgentManager : MonoBehaviour {
 		customers [customer].GetComponent<Customer> ().pathfinding.GetComponent<BoxCollider> ().enabled = true;
 
 	}
+	*/
+
 }

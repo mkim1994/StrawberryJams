@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class Customer : MonoBehaviour {
 
+	private FSM<Customer> _fsm; //apply states to Cat
+
 	private NavMeshAgent agent;
 	private NavMeshObstacle obstacle;
 
@@ -39,9 +41,14 @@ public class Customer : MonoBehaviour {
 
 		canDoThings = true;
 
+		_fsm = new FSM<Customer> (this);
+		_fsm.TransitionTo<EnteringCafe> ();
+
 		/*targetDest = FindNearestCat ().transform.position;
 		SetDestination (currDest);*/
 	}
+
+	/*
 	
 	// Update is called once per frame
 	void Update () {
@@ -146,5 +153,33 @@ public class Customer : MonoBehaviour {
 		obstacle.enabled = false;
 		agent.enabled = true;
 	}
+	*/
+
+	private class CustomerState : FSM<Customer>.State{}
+
+	private class EnteringCafe : CustomerState{
+
+	}
+
+	private class Idling : CustomerState{ //totally uninterested
+
+	}
+
+	private class Walking : CustomerState {
+
+	}
+
+	private class Sitting : CustomerState {
+
+	}
+
+	private class InteractWithCat : CustomerState {
+
+	}
+
+	private class ExitingCafe : CustomerState {
+
+	}
+
 
 }
